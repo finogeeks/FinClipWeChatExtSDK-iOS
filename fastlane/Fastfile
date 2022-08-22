@@ -1,0 +1,182 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+platform :ios do
+  desc "Description of what the lane does"
+  before_all do |lane, options|
+    sh("rm", "-rf", "../build")
+    sh("rm", "-rf", "../dist")
+    cocoapods(
+      clean: true,
+      podfile: "./Podfile",
+      use_bundle_exec: false
+    )
+  end
+
+  lane :deploy do
+    
+    version = sh("git describe --abbrev=0 --tags | tr -d '\\n' | tr -d '\\t'")
+    
+
+    # 增加build版本号
+    #increment_build_number
+    set_info_plist_value(path: './FinAppletWXExt/Info.plist', key: 'CFBundleShortVersionString', value: "#{version}")
+    
+    # 编译代码
+    xcodebuild(
+      workspace: "FinAppletWXExt.xcworkspace",
+      scheme: "FinAppletWXExt",
+      xcargs: "-sdk iphoneos",
+      configuration: "Release",
+      clean: true,
+      derivedDataPath: "./build",
+      build: true
+    )
+    sh("mkdir -p ../dist/Release")
+    sh("cp","-r", "../build/Build/Products/Release-iphoneos/FinAppletWXExt.framework", "../dist/Release/FinAppletWXExt.framework")
+
+    zip(
+      path: "dist/Release/FinAppletWXExt.framework",
+      output_path: "dist/FinAppletWXExt-Min-#{version}.zip"
+    )
+
+    scp(
+      host: "106.52.4.150",
+      username: "finchat",
+      password: "abcd@@123",
+      upload: {
+        src: "dist/FinAppletWXExt-Min-#{version}.zip",
+        dst: "/mnt/data/ci/app/html/finchat/sdk"
+      }
+    )
+
+    xcodebuild(
+      workspace: "FinAppletWXExt.xcworkspace",
+      scheme: "FinAppletWXExt",
+      xcargs: "-sdk iphonesimulator",
+      configuration: "Release",
+      arch: "x86_64",
+      clean: true,
+      derivedDataPath: "./build",
+      build: true
+    )
+
+    sh("lipo -create ../build/Build/Products/Release-iphonesimulator/FinAppletWXExt.framework/FinAppletWXExt ../dist/Release/FinAppletWXExt.framework/FinAppletWXExt -output ../dist/Release/FinAppletWXExt.framework/FinAppletWXExt")
+
+    zip(
+      path: "dist/Release/FinAppletWXExt.framework",
+      output_path: "dist/FinAppletWXExt-#{version}.zip"
+    )
+
+    scp(
+      host: "106.52.4.150",
+      username: "finchat",
+      password: "abcd@@123",
+      upload: {
+        src: "dist/FinAppletWXExt-#{version}.zip",
+        dst: "/mnt/data/ci/app/html/finchat/sdk"
+      }
+    )
+
+    # puts ">>>>>>> upload oclint-report.html >>>>>>"
+      
+    # reportFileName="oclint-report-ext-#{version}.html"
+
+    # sh("cp","-r", "../oclint-report.html", "../dist/#{reportFileName}")
+    # scp(
+    #   host: "106.52.4.150",
+    #   username: "finchat",
+    #   password: "abcd@@123",
+    #   upload: {
+    #     src: "dist/#{reportFileName}",
+    #     dst: "/mnt/data/ci/app/html/finchat/sdk"
+    #   }
+    # )
+    # sh("curl --request POST --url https://finogeeks-tools.finogeeks.club/test-report/upload --header 'cache-control: no-cache' --header 'token: finclip@static' --form 'file=@../dist/#{reportFileName}' --form 'namespace=ios' --form 'token=finclip@static' -s")
+  end
+
+  lane :dev do |options|
+    
+    #version = sh("git describe --abbrev=0 --tags | tr -d '\\n' | tr -d '\\t'")
+    version = ENV["version"]
+    createReport = options[:createReport]
+
+    # 增加build版本号
+    #increment_build_number
+    #set_info_plist_value(path: './FinAppletWXExt/Info.plist', key: 'CFBundleShortVersionString', value: "#{version}")
+    
+    # 编译代码
+    xcodebuild(
+      workspace: "FinAppletWXExt.xcworkspace",
+      scheme: "FinAppletWXExt",
+      xcargs: "-sdk iphoneos",
+      configuration: "Release",
+      clean: true,
+      derivedDataPath: "./build",
+      build: true
+    )
+    sh("mkdir -p ../dist/Release")
+    sh("cp","-r", "../build/Build/Products/Release-iphoneos/FinAppletWXExt.framework", "../dist/Release/FinAppletWXExt.framework")
+
+    xcodebuild(
+      workspace: "FinAppletWXExt.xcworkspace",
+      scheme: "FinAppletWXExt",
+      xcargs: "-sdk iphonesimulator",
+      configuration: "Release",
+      arch: "x86_64",
+      clean: true,
+      derivedDataPath: "./build",
+      build: true
+    )
+
+    sh("lipo -create ../build/Build/Products/Release-iphonesimulator/FinAppletWXExt.framework/FinAppletWXExt ../dist/Release/FinAppletWXExt.framework/FinAppletWXExt -output ../dist/Release/FinAppletWXExt.framework/FinAppletWXExt")
+
+    zip(
+      path: "dist/Release/FinAppletWXExt.framework",
+      output_path: "dist/FinAppletWXExt-dev-#{version}.zip"
+    )
+
+    scp(
+      host: "106.52.4.150",
+      username: "finchat",
+      password: "abcd@@123",
+      upload: {
+        src: "dist/FinAppletWXExt-dev-#{version}.zip",
+        dst: "/mnt/data/ci/app/html/finchat/sdk"
+      }
+    )
+
+    # if createReport
+    #   puts ">>>>>>> upload oclint-report.html >>>>>>"
+      
+    #   reportFileName="oclint-report-ext-#{version}.html"
+
+    #   sh("cp","-r", "../oclint-report.html", "../dist/#{reportFileName}")
+      # scp(
+      #   host: "106.52.4.150",
+      #   username: "finchat",
+      #   password: "abcd@@123",
+      #   upload: {
+      #     src: "dist/#{reportFileName}",
+      #     dst: "/mnt/data/ci/app/html/finchat/sdk"
+      #   }
+      # )
+      # sh("curl --request POST --url https://finogeeks-tools.finogeeks.club/test-report/upload --header 'cache-control: no-cache' --header 'token: finclip@static' --form 'file=@../dist/#{reportFileName}' --form 'namespace=ios' --form 'token=finclip@static' -s")
+    # end
+  end
+
+
+end
