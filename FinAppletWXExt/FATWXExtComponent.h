@@ -7,6 +7,9 @@
 
 #import <Foundation/Foundation.h>
 #import "WXApi.h"
+#import <FinApplet/FinApplet.h>
+#import "FATWXExtBaseApi.h"
+#import "FATDelegateClientHelper.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

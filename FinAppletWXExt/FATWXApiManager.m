@@ -20,10 +20,13 @@
 
 #pragma mark - WXApiDelegate
 - (void)onResp:(BaseResp *)resp {
+    NSLog(@"test3");
     if ([resp isKindOfClass: [WXLaunchMiniProgramResp class]]) {
+        NSLog(@"test4");
         WXLaunchMiniProgramResp *loginResp = (WXLaunchMiniProgramResp*)resp;
         if (self.wxResponse) {
             self.wxResponse(loginResp);
+            NSLog(@"test5");
         }
         return;
     }

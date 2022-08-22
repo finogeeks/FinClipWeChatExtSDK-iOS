@@ -6,9 +6,7 @@
 //
 
 #import "FATWXExtComponent.h"
-#import <FinApplet/FinApplet.h>
-#import "FATWXExtBaseApi.h"
-#import "FATDelegateClientHelper.h"
+
 
 @implementation FATWXExtComponent
 

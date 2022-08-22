@@ -36,10 +36,12 @@
     [WXApi sendReq:launchMiniProgramReq completion:^(BOOL success) {
         
     }];
-    
+    NSLog(@"test1");
+
     [FATWXApiManager sharedManager].wxResponse = ^(WXLaunchMiniProgramResp *resp) {
         NSDictionary *dic = [FATWXUtils dictionaryWithJsonString:resp.extMsg];
         if (callback) {
+            NSLog(@"test2");
             callback([dic[@"errMsg"] containsString:@"fail"] ? FATExtensionCodeFailure : FATExtensionCodeSuccess, dic);
         }
     };
