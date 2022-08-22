@@ -16,7 +16,7 @@
 		EEA3BB3A28ACDA300091D2DF /* FinAppletWXExt.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA3BB2C28ACDA300091D2DF /* FinAppletWXExt.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EEA3BB4928AE72810091D2DF /* FATWXExtBaseApi.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA3BB4728AE72810091D2DF /* FATWXExtBaseApi.h */; };
 		EEA3BB4A28AE72810091D2DF /* FATWXExtBaseApi.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB4828AE72810091D2DF /* FATWXExtBaseApi.m */; };
-		EEA3BB4D28AE77410091D2DF /* FATWXExtComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA3BB4B28AE77410091D2DF /* FATWXExtComponent.h */; };
+		EEA3BB4D28AE77410091D2DF /* FATWXExtComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA3BB4B28AE77410091D2DF /* FATWXExtComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EEA3BB4E28AE77410091D2DF /* FATWXExtComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB4C28AE77410091D2DF /* FATWXExtComponent.m */; };
 		EEA3BB5128AE7AA90091D2DF /* FATExt_login.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA3BB4F28AE7AA80091D2DF /* FATExt_login.h */; };
 		EEA3BB5228AE7AA90091D2DF /* FATExt_login.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB5028AE7AA90091D2DF /* FATExt_login.m */; };
