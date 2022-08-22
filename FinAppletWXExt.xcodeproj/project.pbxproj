@@ -24,7 +24,7 @@
 		EEA3BB5628AE7AC40091D2DF /* FATExt_getUserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB5428AE7AC40091D2DF /* FATExt_getUserProfile.m */; };
 		EEA3BB5928AE7AD40091D2DF /* FATExt_requestPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA3BB5728AE7AD40091D2DF /* FATExt_requestPayment.h */; };
 		EEA3BB5A28AE7AD40091D2DF /* FATExt_requestPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB5828AE7AD40091D2DF /* FATExt_requestPayment.m */; };
-		EEA3BB6E28B117730091D2DF /* FATWXApiManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA3BB6C28B117730091D2DF /* FATWXApiManager.h */; };
+		EEA3BB6E28B117730091D2DF /* FATWXApiManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA3BB6C28B117730091D2DF /* FATWXApiManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EEA3BB6F28B117730091D2DF /* FATWXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB6D28B117730091D2DF /* FATWXApiManager.m */; };
 		EEA3BB7228B25E680091D2DF /* FATDelegateClientHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA3BB7028B25E680091D2DF /* FATDelegateClientHelper.h */; };
 		EEA3BB7328B25E680091D2DF /* FATDelegateClientHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB7128B25E680091D2DF /* FATDelegateClientHelper.m */; };
@@ -141,12 +141,12 @@
 				EE85854228B3B5F7007B5608 /* Info.plist */,
 				EEA3BB4B28AE77410091D2DF /* FATWXExtComponent.h */,
 				EEA3BB4C28AE77410091D2DF /* FATWXExtComponent.m */,
+				EEA3BB6C28B117730091D2DF /* FATWXApiManager.h */,
+				EEA3BB6D28B117730091D2DF /* FATWXApiManager.m */,
 				EE90430E28B375B400BEB853 /* Tools */,
 				EEA3BB4728AE72810091D2DF /* FATWXExtBaseApi.h */,
 				EEA3BB4828AE72810091D2DF /* FATWXExtBaseApi.m */,
 				EEA3BB7428B25E770091D2DF /* api */,
-				EEA3BB6C28B117730091D2DF /* FATWXApiManager.h */,
-				EEA3BB6D28B117730091D2DF /* FATWXApiManager.m */,
 				EEA3BB7028B25E680091D2DF /* FATDelegateClientHelper.h */,
 				EEA3BB7128B25E680091D2DF /* FATDelegateClientHelper.m */,
 				EEA3BB2D28ACDA300091D2DF /* FinAppletWXExt.docc */,
