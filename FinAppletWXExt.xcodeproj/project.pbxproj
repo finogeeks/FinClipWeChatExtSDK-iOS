@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6F0B9CA9171037EB31CCC602 /* Pods_FinAppletWXExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D7AE6AE812B283D34509DE /* Pods_FinAppletWXExt.framework */; };
-		EE85854328B3B5F7007B5608 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE85854228B3B5F7007B5608 /* Info.plist */; };
 		EE90430C28B375AF00BEB853 /* FATWXUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = EE90430A28B375AF00BEB853 /* FATWXUtils.h */; };
 		EE90430D28B375AF00BEB853 /* FATWXUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EE90430B28B375AF00BEB853 /* FATWXUtils.m */; };
 		EEA3BB2E28ACDA300091D2DF /* FinAppletWXExt.docc in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB2D28ACDA300091D2DF /* FinAppletWXExt.docc */; };
@@ -276,7 +275,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE85854328B3B5F7007B5608 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
