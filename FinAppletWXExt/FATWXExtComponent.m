@@ -36,6 +36,11 @@
         [extBaseApi setupApiWithCallback:callback];
     }];
     
+    [[FATClient sharedClient] registerExtensionApi:@"testJump" handler:^(FATAppletInfo *appletInfo, id param, FATExtensionApiCallback callback) {
+        FATWXExtBaseApi *extBaseApi = [FATWXExtBaseApi apiWithCommand:@"testJump" param:param];
+        [extBaseApi setupApiWithCallback:callback];
+    }];
+    
     return isSuccess;
 }
 

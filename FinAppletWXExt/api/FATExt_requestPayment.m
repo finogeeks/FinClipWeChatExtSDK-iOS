@@ -17,10 +17,17 @@
     
     FATAppletInfo *appInfo = [[FATClient sharedClient] currentApplet];
     NSDictionary *info = appInfo.wechatLoginInfo;
+    NSString *pathString = [NSString stringWithFormat:@"%@", info[@"paymentUrl"]];
+    if ([FATWXUtils fat_isEmptyWithString:pathString]) {
+        if (callback) {
+            callback(FATExtensionCodeFailure,@{@"errMsg":@"path not exist"});
+        }
+        return;
+    }
     NSString *payString = [NSString stringWithFormat:@"?appId=%@&nonceStr=%@&package=%@&paySign=%@&signType=%@&timeStamp=%@&type=%@", self.appId, self.nonceStr, self.package, self.paySign, self.signType, self.timeStamp, self.type];
     WXLaunchMiniProgramReq *launchMiniProgramReq = [WXLaunchMiniProgramReq object];
     launchMiniProgramReq.userName = info[@"wechatOriginId"];
-    launchMiniProgramReq.path = [NSString stringWithFormat:@"%@%@", info[@"paymentUrl"], payString];
+    launchMiniProgramReq.path = [NSString stringWithFormat:@"%@%@", pathString, payString];
     if (appInfo.appletVersionType == FATAppletVersionTypeRelease) {
         launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease; //正式版
     } else if (appInfo.appletVersionType == FATAppletVersionTypeTrial) {

@@ -11,21 +11,21 @@
 #import "FATWXApiManager.h"
 #import "FATWXUtils.h"
 
-@interface FATExt_login ()
-
-@property (nonatomic, copy) FATExtensionApiCallback callBack;
-
-@end
-
 @implementation FATExt_login
 
 - (void)setupApiWithCallback:(FATExtensionApiCallback)callback {
-    
     FATAppletInfo *appInfo = [[FATClient sharedClient] currentApplet];
-    NSDictionary *info = appInfo.wechatLoginInfo;    
+    NSDictionary *info = appInfo.wechatLoginInfo;
+    NSString *pathString = [NSString stringWithFormat:@"%@", info[@"profileUrl"]];
+    if ([FATWXUtils fat_isEmptyWithString:pathString]) {
+        if (callback) {
+            callback(FATExtensionCodeFailure,@{@"errMsg":@"path not exist"});
+        }
+        return;
+    }
     WXLaunchMiniProgramReq *launchMiniProgramReq = [WXLaunchMiniProgramReq object];
     launchMiniProgramReq.userName = info[@"wechatOriginId"];
-    launchMiniProgramReq.path = info[@"profileUrl"];
+    launchMiniProgramReq.path = pathString;
     if (appInfo.appletVersionType == FATAppletVersionTypeRelease) {
         launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease; //正式版
     } else if (appInfo.appletVersionType == FATAppletVersionTypeTrial) {

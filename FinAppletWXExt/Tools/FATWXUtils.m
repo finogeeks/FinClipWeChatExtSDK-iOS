@@ -23,4 +23,16 @@
     return dic;
 }
 
++ (BOOL)fat_isEmptyWithString:(NSString *)string {
+    if (![string isKindOfClass:[NSString class]]) {
+        return YES;
+    }
+
+    if (string.length == 0) {
+        return YES;
+    }
+
+    return NO;
+}
+
 @end

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
 
++ (BOOL)fat_isEmptyWithString:(NSString *)string;
 @end
 
 NS_ASSUME_NONNULL_END
