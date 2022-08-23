@@ -21,8 +21,7 @@ platform :ios do
     sh("rm", "-rf", "../dist")
     cocoapods(
       clean: true,
-      podfile: "./Podfile",
-      use_bundle_exec: false
+      podfile: "./Podfile"
     )
   end
 
@@ -91,21 +90,6 @@ platform :ios do
       }
     )
 
-    # puts ">>>>>>> upload oclint-report.html >>>>>>"
-      
-    # reportFileName="oclint-report-ext-#{version}.html"
-
-    # sh("cp","-r", "../oclint-report.html", "../dist/#{reportFileName}")
-    # scp(
-    #   host: "106.52.4.150",
-    #   username: "finchat",
-    #   password: "abcd@@123",
-    #   upload: {
-    #     src: "dist/#{reportFileName}",
-    #     dst: "/mnt/data/ci/app/html/finchat/sdk"
-    #   }
-    # )
-    # sh("curl --request POST --url https://finogeeks-tools.finogeeks.club/test-report/upload --header 'cache-control: no-cache' --header 'token: finclip@static' --form 'file=@../dist/#{reportFileName}' --form 'namespace=ios' --form 'token=finclip@static' -s")
   end
 
   lane :dev do |options|
@@ -159,23 +143,6 @@ platform :ios do
       }
     )
 
-    # if createReport
-    #   puts ">>>>>>> upload oclint-report.html >>>>>>"
-      
-    #   reportFileName="oclint-report-ext-#{version}.html"
-
-    #   sh("cp","-r", "../oclint-report.html", "../dist/#{reportFileName}")
-      # scp(
-      #   host: "106.52.4.150",
-      #   username: "finchat",
-      #   password: "abcd@@123",
-      #   upload: {
-      #     src: "dist/#{reportFileName}",
-      #     dst: "/mnt/data/ci/app/html/finchat/sdk"
-      #   }
-      # )
-      # sh("curl --request POST --url https://finogeeks-tools.finogeeks.club/test-report/upload --header 'cache-control: no-cache' --header 'token: finclip@static' --form 'file=@../dist/#{reportFileName}' --form 'namespace=ios' --form 'token=finclip@static' -s")
-    # end
   end
 
 
