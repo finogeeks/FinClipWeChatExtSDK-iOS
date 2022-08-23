@@ -32,7 +32,7 @@ static FATDelegateClientHelper *instance = nil;
 
 - (void)getPhoneNumberWithAppletInfo:(FATAppletInfo *)appletInfo bindGetPhoneNumber:(void (^)(NSDictionary *result))bindGetPhoneNumber {
     NSDictionary *info = appletInfo.wechatLoginInfo;
-    NSString *pathString = [NSString stringWithFormat:@"%@", info[@"phoneUrl"]];
+    NSString *pathString = info[@"phoneUrl"];
 
     if ([FATWXUtils fat_isEmptyWithString:pathString]) {
         if (bindGetPhoneNumber) {

@@ -16,7 +16,7 @@
 - (void)setupApiWithCallback:(FATExtensionApiCallback)callback {
     FATAppletInfo *appInfo = [[FATClient sharedClient] currentApplet];
     NSDictionary *info = appInfo.wechatLoginInfo;
-    NSString *pathString = [NSString stringWithFormat:@"%@", info[@"profileUrl"]];
+    NSString *pathString = info[@"profileUrl"];
     if ([FATWXUtils fat_isEmptyWithString:pathString]) {
         if (callback) {
             callback(FATExtensionCodeFailure,@{@"errMsg":@"path not exist"});
