@@ -7,36 +7,37 @@
 
 #import "FATWXApiManager.h"
 
+static FATWXApiManager *instance = nil;
+
 @implementation FATWXApiManager
 
 +(instancetype)sharedManager {
     static dispatch_once_t onceToken;
-    static FATWXApiManager *instance;
     dispatch_once(&onceToken, ^{
-        instance = [[FATWXApiManager alloc] init];
+        instance = [[[self class] alloc] init];
+    });
+    return instance;
+}
+
++ (instancetype)allocWithZone:(struct _NSZone *)zone {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [super allocWithZone:zone];
     });
     return instance;
 }
 
 #pragma mark - WXApiDelegate
 - (void)onResp:(BaseResp *)resp {
-    NSLog(@"test3 class = %@", resp.class);
-    NSLog(@"test3 resp = %@ resp.type=%@ resp.errCode=%@ resp.errStr=%@", resp, resp.type, resp.errCode, resp.errStr);
     if ([resp isKindOfClass: [WXLaunchMiniProgramResp class]]) {
-        NSLog(@"test4");
         WXLaunchMiniProgramResp *loginResp = (WXLaunchMiniProgramResp*)resp;
         if (self.wxResponse) {
             self.wxResponse(loginResp);
-            NSLog(@"test5");
         }
         return;
     } else {
-        NSLog(@"不支持的类型，返回");
+        NSLog(@"不支持的类型返回");
     }
-}
-
-- (void)onLog:(NSString*)log logLevel:(WXLogLevel)level {
-    NSLog(@"%@", log);
 }
 
 @end
