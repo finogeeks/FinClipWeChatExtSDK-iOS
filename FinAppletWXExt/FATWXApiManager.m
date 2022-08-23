@@ -20,7 +20,8 @@
 
 #pragma mark - WXApiDelegate
 - (void)onResp:(BaseResp *)resp {
-    NSLog(@"test3");
+    NSLog(@"test3 class = %@", resp.class);
+    NSLog(@"test3 resp = %@ resp.type=%@ resp.errCode=%@ resp.errStr=%@", resp, resp.type, resp.errCode, resp.errStr);
     if ([resp isKindOfClass: [WXLaunchMiniProgramResp class]]) {
         NSLog(@"test4");
         WXLaunchMiniProgramResp *loginResp = (WXLaunchMiniProgramResp*)resp;
@@ -31,4 +32,9 @@
         return;
     }
 }
+
+- (void)onLog:(NSString*)log logLevel:(WXLogLevel)level {
+    NSLog(@"%@", log);
+}
+
 @end
