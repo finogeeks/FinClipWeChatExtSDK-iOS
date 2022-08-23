@@ -30,6 +30,8 @@
             NSLog(@"test5");
         }
         return;
+    } else {
+        NSLog(@"不支持的类型，返回");
     }
 }
 
