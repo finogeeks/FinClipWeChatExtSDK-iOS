@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6F0B9CA9171037EB31CCC602 /* Pods_FinAppletWXExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D7AE6AE812B283D34509DE /* Pods_FinAppletWXExt.framework */; };
-		EE34034A28B4C53E00E903D0 /* FATExt_ testJump.h in Headers */ = {isa = PBXBuildFile; fileRef = EE34034828B4C53E00E903D0 /* FATExt_ testJump.h */; };
-		EE34034B28B4C53E00E903D0 /* FATExt_ testJump.m in Sources */ = {isa = PBXBuildFile; fileRef = EE34034928B4C53E00E903D0 /* FATExt_ testJump.m */; };
 		EE90430C28B375AF00BEB853 /* FATWXUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = EE90430A28B375AF00BEB853 /* FATWXUtils.h */; };
 		EE90430D28B375AF00BEB853 /* FATWXUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EE90430B28B375AF00BEB853 /* FATWXUtils.m */; };
 		EEA3BB2E28ACDA300091D2DF /* FinAppletWXExt.docc in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB2D28ACDA300091D2DF /* FinAppletWXExt.docc */; };
@@ -30,6 +28,8 @@
 		EEA3BB6F28B117730091D2DF /* FATWXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB6D28B117730091D2DF /* FATWXApiManager.m */; };
 		EEA3BB7228B25E680091D2DF /* FATDelegateClientHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA3BB7028B25E680091D2DF /* FATDelegateClientHelper.h */; };
 		EEA3BB7328B25E680091D2DF /* FATDelegateClientHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB7128B25E680091D2DF /* FATDelegateClientHelper.m */; };
+		EEF32AC028B75802008DCC45 /* FATExt_testJump.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF32ABE28B75802008DCC45 /* FATExt_testJump.m */; };
+		EEF32AC128B75802008DCC45 /* FATExt_testJump.h in Headers */ = {isa = PBXBuildFile; fileRef = EEF32ABF28B75802008DCC45 /* FATExt_testJump.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +46,6 @@
 		34A1FC8C0B66F40BD85005C0 /* Pods-FinAppletWXExt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinAppletWXExt.debug.xcconfig"; path = "Target Support Files/Pods-FinAppletWXExt/Pods-FinAppletWXExt.debug.xcconfig"; sourceTree = "<group>"; };
 		45D7AE6AE812B283D34509DE /* Pods_FinAppletWXExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinAppletWXExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13C68B857096563FF053F23 /* Pods-FinAppletWXExt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinAppletWXExt.release.xcconfig"; path = "Target Support Files/Pods-FinAppletWXExt/Pods-FinAppletWXExt.release.xcconfig"; sourceTree = "<group>"; };
-		EE34034828B4C53E00E903D0 /* FATExt_ testJump.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FATExt_ testJump.h"; sourceTree = "<group>"; };
-		EE34034928B4C53E00E903D0 /* FATExt_ testJump.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FATExt_ testJump.m"; sourceTree = "<group>"; };
 		EE85854228B3B5F7007B5608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE90430A28B375AF00BEB853 /* FATWXUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FATWXUtils.h; sourceTree = "<group>"; };
 		EE90430B28B375AF00BEB853 /* FATWXUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FATWXUtils.m; sourceTree = "<group>"; };
@@ -70,6 +68,8 @@
 		EEA3BB6D28B117730091D2DF /* FATWXApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FATWXApiManager.m; sourceTree = "<group>"; };
 		EEA3BB7028B25E680091D2DF /* FATDelegateClientHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FATDelegateClientHelper.h; sourceTree = "<group>"; };
 		EEA3BB7128B25E680091D2DF /* FATDelegateClientHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FATDelegateClientHelper.m; sourceTree = "<group>"; };
+		EEF32ABE28B75802008DCC45 /* FATExt_testJump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FATExt_testJump.m; sourceTree = "<group>"; };
+		EEF32ABF28B75802008DCC45 /* FATExt_testJump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FATExt_testJump.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,8 +171,8 @@
 			children = (
 				EEA3BB4F28AE7AA80091D2DF /* FATExt_login.h */,
 				EEA3BB5028AE7AA90091D2DF /* FATExt_login.m */,
-				EE34034828B4C53E00E903D0 /* FATExt_ testJump.h */,
-				EE34034928B4C53E00E903D0 /* FATExt_ testJump.m */,
+				EEF32ABF28B75802008DCC45 /* FATExt_testJump.h */,
+				EEF32ABE28B75802008DCC45 /* FATExt_testJump.m */,
 				EEA3BB5328AE7AC40091D2DF /* FATExt_getUserProfile.h */,
 				EEA3BB5428AE7AC40091D2DF /* FATExt_getUserProfile.m */,
 				EEA3BB5728AE7AD40091D2DF /* FATExt_requestPayment.h */,
@@ -189,10 +189,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEA3BB7228B25E680091D2DF /* FATDelegateClientHelper.h in Headers */,
-				EE34034A28B4C53E00E903D0 /* FATExt_ testJump.h in Headers */,
 				EEA3BB5128AE7AA90091D2DF /* FATExt_login.h in Headers */,
 				EEA3BB5928AE7AD40091D2DF /* FATExt_requestPayment.h in Headers */,
 				EEA3BB4928AE72810091D2DF /* FATWXExtBaseApi.h in Headers */,
+				EEF32AC128B75802008DCC45 /* FATExt_testJump.h in Headers */,
 				EEA3BB4D28AE77410091D2DF /* FATWXExtComponent.h in Headers */,
 				EEA3BB3A28ACDA300091D2DF /* FinAppletWXExt.h in Headers */,
 				EE90430C28B375AF00BEB853 /* FATWXUtils.h in Headers */,
@@ -330,10 +330,10 @@
 				EEA3BB4E28AE77410091D2DF /* FATWXExtComponent.m in Sources */,
 				EEA3BB6F28B117730091D2DF /* FATWXApiManager.m in Sources */,
 				EEA3BB4A28AE72810091D2DF /* FATWXExtBaseApi.m in Sources */,
-				EE34034B28B4C53E00E903D0 /* FATExt_ testJump.m in Sources */,
 				EEA3BB5A28AE7AD40091D2DF /* FATExt_requestPayment.m in Sources */,
 				EEA3BB7328B25E680091D2DF /* FATDelegateClientHelper.m in Sources */,
 				EEA3BB5628AE7AC40091D2DF /* FATExt_getUserProfile.m in Sources */,
+				EEF32AC028B75802008DCC45 /* FATExt_testJump.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
