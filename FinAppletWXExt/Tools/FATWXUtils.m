@@ -35,4 +35,16 @@
     return NO;
 }
 
++ (BOOL)fat_isEmptyArrayWithArry:(NSArray *)array {
+    if (!array || ![array isKindOfClass:[NSArray class]]) {
+        return YES;
+    }
+
+    if (array.count == 0) {
+        return YES;
+    }
+
+    return NO;
+}
+
 @end
