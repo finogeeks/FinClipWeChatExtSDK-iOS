@@ -6,6 +6,7 @@
 //
 
 #import "FATWXExtComponent.h"
+#import "WXApi.h"
 #import <FinApplet/FinApplet.h>
 #import "FATWXExtBaseApi.h"
 #import "FATDelegateClientHelper.h"
@@ -32,6 +33,11 @@
     
     [[FATClient sharedClient] registerExtensionApi:@"requestPayment" handler:^(FATAppletInfo *appletInfo, id param, FATExtensionApiCallback callback) {
         FATWXExtBaseApi *extBaseApi = [FATWXExtBaseApi apiWithCommand:@"requestPayment" param:param];
+        [extBaseApi setupApiWithCallback:callback];
+    }];
+    
+    [[FATClient sharedClient] registerExtensionApi:@"testJump" handler:^(FATAppletInfo *appletInfo, id param, FATExtensionApiCallback callback) {
+        FATWXExtBaseApi *extBaseApi = [FATWXExtBaseApi apiWithCommand:@"testJump" param:param];
         [extBaseApi setupApiWithCallback:callback];
     }];
     

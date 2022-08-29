@@ -11,32 +11,32 @@
 #import "FATWXApiManager.h"
 #import "FATWXUtils.h"
 
-@interface FATExt_login ()
-
-@property (nonatomic, copy) FATExtensionApiCallback callBack;
-
-@end
-
 @implementation FATExt_login
 
 - (void)setupApiWithCallback:(FATExtensionApiCallback)callback {
-    
     FATAppletInfo *appInfo = [[FATClient sharedClient] currentApplet];
-    NSDictionary *info = appInfo.wechatLoginInfo;    
+    NSDictionary *info = appInfo.wechatLoginInfo;
+    NSString *pathString = info[@"profileUrl"];
+    if ([FATWXUtils fat_isEmptyWithString:pathString]) {
+        if (callback) {
+            callback(FATExtensionCodeFailure,@{@"errMsg":@"path not exist"});
+        }
+        return;
+    }
     WXLaunchMiniProgramReq *launchMiniProgramReq = [WXLaunchMiniProgramReq object];
     launchMiniProgramReq.userName = info[@"wechatOriginId"];
-    launchMiniProgramReq.path = info[@"profileUrl"];
+    launchMiniProgramReq.path = pathString;
     if (appInfo.appletVersionType == FATAppletVersionTypeRelease) {
         launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease; //正式版
     } else if (appInfo.appletVersionType == FATAppletVersionTypeTrial) {
-        launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview; //开发版
-    } else {
         launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview; //体验版
+    } else {
+        launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest; //开发版
     }
     [WXApi sendReq:launchMiniProgramReq completion:^(BOOL success) {
         
     }];
-    
+
     [FATWXApiManager sharedManager].wxResponse = ^(WXLaunchMiniProgramResp *resp) {
         NSDictionary *dic = [FATWXUtils dictionaryWithJsonString:resp.extMsg];
         if (callback) {

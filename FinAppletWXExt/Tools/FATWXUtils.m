@@ -23,4 +23,28 @@
     return dic;
 }
 
++ (BOOL)fat_isEmptyWithString:(NSString *)string {
+    if (![string isKindOfClass:[NSString class]]) {
+        return YES;
+    }
+
+    if (string.length == 0) {
+        return YES;
+    }
+
+    return NO;
+}
+
++ (BOOL)fat_isEmptyArrayWithArry:(NSArray *)array {
+    if (!array || ![array isKindOfClass:[NSArray class]]) {
+        return YES;
+    }
+
+    if (array.count == 0) {
+        return YES;
+    }
+
+    return NO;
+}
+
 @end

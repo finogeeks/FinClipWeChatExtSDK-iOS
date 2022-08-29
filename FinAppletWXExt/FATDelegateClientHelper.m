@@ -32,16 +32,23 @@ static FATDelegateClientHelper *instance = nil;
 
 - (void)getPhoneNumberWithAppletInfo:(FATAppletInfo *)appletInfo bindGetPhoneNumber:(void (^)(NSDictionary *result))bindGetPhoneNumber {
     NSDictionary *info = appletInfo.wechatLoginInfo;
-    
+    NSString *pathString = info[@"phoneUrl"];
+
+    if ([FATWXUtils fat_isEmptyWithString:pathString]) {
+        if (bindGetPhoneNumber) {
+            bindGetPhoneNumber(@{@"errMsg":@"path not exist"});
+        }
+        return;
+    }
     WXLaunchMiniProgramReq *launchMiniProgramReq = [WXLaunchMiniProgramReq object];
     launchMiniProgramReq.userName = info[@"wechatOriginId"];  //拉起的小程序的username
-    launchMiniProgramReq.path = info[@"phoneUrl"];
+    launchMiniProgramReq.path = pathString;
     if (appletInfo.appletVersionType == FATAppletVersionTypeRelease) {
-        launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease; //正式版
+        launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease;
     } else if (appletInfo.appletVersionType == FATAppletVersionTypeTrial) {
-        launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview; //开发版
+        launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview;
     } else {
-        launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview; //体验版
+        launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest;
     }
     [WXApi sendReq:launchMiniProgramReq completion:^(BOOL success) {
         

@@ -1,6 +1,6 @@
 PODS:
-  - FinApplet (2.37.9)
-  - WechatOpenSDK (1.8.7.1)
+  - FinApplet (2.37.11)
+  - WechatOpenSDK (1.9.7)
 
 DEPENDENCIES:
   - FinApplet
@@ -12,8 +12,8 @@ SPEC REPOS:
     - WechatOpenSDK
 
 SPEC CHECKSUMS:
-  FinApplet: 1186c1988e3919d1a58d4492d0e0ae5e634cb7b6
-  WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
+  FinApplet: a79adb6841bd6090da812f5e5881d3d358aaf1b5
+  WechatOpenSDK: 2f0ae448c7525cb5c27db5f7aa0f568de0988fa4
 
 PODFILE CHECKSUM: 517c6cc5bf9d3f5566f63bcd996de35fe176c9f3
 

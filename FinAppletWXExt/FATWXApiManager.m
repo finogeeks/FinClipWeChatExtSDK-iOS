@@ -7,13 +7,22 @@
 
 #import "FATWXApiManager.h"
 
+static FATWXApiManager *instance = nil;
+
 @implementation FATWXApiManager
 
 +(instancetype)sharedManager {
     static dispatch_once_t onceToken;
-    static FATWXApiManager *instance;
     dispatch_once(&onceToken, ^{
-        instance = [[FATWXApiManager alloc] init];
+        instance = [[[self class] alloc] init];
+    });
+    return instance;
+}
+
++ (instancetype)allocWithZone:(struct _NSZone *)zone {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [super allocWithZone:zone];
     });
     return instance;
 }
@@ -26,6 +35,9 @@
             self.wxResponse(loginResp);
         }
         return;
+    } else {
+        NSLog(@"不支持的类型返回");
     }
 }
+
 @end

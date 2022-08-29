@@ -11,8 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FATExt_login : FATWXExtBaseApi
 
-@property (nonatomic, strong, readonly) NSDictionary *param;
-
 @end
 
 NS_ASSUME_NONNULL_END
