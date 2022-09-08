@@ -17,3 +17,4 @@ FOUNDATION_EXPORT const unsigned char FinAppletWXExtVersionString[];
 
 #import "FATWXExtComponent.h"
 #import "FATWXApiManager.h"
+#import "FATDelegateClientHelper.h"
