@@ -7,12 +7,18 @@
 
 #import <Foundation/Foundation.h>
 #import <FinApplet/FinApplet.h>
+#import "FATWXExtButtonOpenTypeDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FATDelegateClientHelper : NSObject<FATAppletDelegate>
+@interface FATDelegateClientHelper : NSObject<FATAppletButtonOpenTypeDelegate>
 
 + (instancetype)sharedHelper;
+
+/**
+ button的open-type能力相关的代理事件
+ */
+@property (nonatomic, weak) id<FATWXExtButtonOpenTypeDelegate> buttonOpenTypeDelegate;
 
 @end
 
