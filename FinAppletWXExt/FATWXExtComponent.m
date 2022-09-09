@@ -19,7 +19,7 @@
     //向微信注册
     BOOL isSuccess = [WXApi registerApp:appld universalLink:universalLink];
     
-    [FATClient sharedClient].delegate = [FATDelegateClientHelper sharedHelper];
+    [FATClient sharedClient].buttonOpenTypeDelegate = [FATDelegateClientHelper sharedHelper];
 
     [[FATClient sharedClient] registerExtensionApi:@"login" handler:^(FATAppletInfo *appletInfo, id param, FATExtensionApiCallback callback) {
         FATWXExtBaseApi *extBaseApi = [FATWXExtBaseApi apiWithCommand:@"login" param:param];
