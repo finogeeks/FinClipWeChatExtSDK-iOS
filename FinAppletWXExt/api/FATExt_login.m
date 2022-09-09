@@ -29,9 +29,9 @@
     if (appInfo.appletVersionType == FATAppletVersionTypeRelease) {
         launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease; //正式版
     } else if (appInfo.appletVersionType == FATAppletVersionTypeTrial) {
-        launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview; //开发版
-    } else {
         launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview; //体验版
+    } else {
+        launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest; //开发版
     }
     [WXApi sendReq:launchMiniProgramReq completion:^(BOOL success) {
         
