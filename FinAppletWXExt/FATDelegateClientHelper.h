@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FATDelegateClientHelper : NSObject<FATAppletDelegate>
+@interface FATDelegateClientHelper : NSObject<FATAppletButtonOpenTypeDelegate>
 
 + (instancetype)sharedHelper;
 
