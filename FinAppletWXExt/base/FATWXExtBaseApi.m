@@ -18,8 +18,8 @@
     }
     FATWXExtBaseApi *api = [[ApiClass alloc] init];
     [api setValue:param forKey:@"param"];
-    NSDictionary *propertyMap = @{};
-    NSArray *mapToKeys = propertyMap.allValues;
+//    NSDictionary *propertyMap = @{};
+//    NSArray *mapToKeys = propertyMap.allValues;
     for (NSString *datakey in param.allKeys) {
         @autoreleasepool {
             NSString *propertyKey = datakey;

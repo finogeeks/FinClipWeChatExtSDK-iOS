@@ -1,0 +1,30 @@
+PODS:
+  - FinApplet (2.38.3)
+  - FinAppletExt (2.38.3):
+    - FinApplet (= 2.38.3)
+  - FinAppletWXExt (2.38.3):
+    - FinApplet (= 2.38.3)
+    - WechatOpenSDK
+  - WechatOpenSDK (1.9.7)
+
+DEPENDENCIES:
+  - FinApplet
+  - FinAppletExt
+  - FinAppletWXExt
+
+SPEC REPOS:
+  trunk:
+    - FinApplet
+    - FinAppletExt
+    - FinAppletWXExt
+    - WechatOpenSDK
+
+SPEC CHECKSUMS:
+  FinApplet: e15a811f54f1fef20e171e051845e4c4d92b50a3
+  FinAppletExt: 757f6c0a1a1cc05ef38b70073bd54ab756b7a583
+  FinAppletWXExt: e8dfce3f68c3cb065b742cbf4d588ce754531642
+  WechatOpenSDK: 2f0ae448c7525cb5c27db5f7aa0f568de0988fa4
+
+PODFILE CHECKSUM: 78d391aba9dfe669bdfba02a56e23203438bd5ad
+
+COCOAPODS: 1.11.3

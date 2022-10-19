@@ -17,15 +17,105 @@
 
 @optional
 
-#pragma mark-- 小程序配置
+#pragma mark - lifeCycleDelegate methods
 
-/// 给小程序设置配置项,使用场景：需要给某个特定小程序设置特殊配置项
-/// @param appletInfo 小程序信息
-- (FATAppletConfig *)getConfigWithAppletInfo:(FATAppletInfo *)appletInfo;
+/**
+ 小程序打开完成的事件
+ @param appletId 小程序id
+ @param error 错误对象
+ */
+- (void)applet:(NSString *)appletId didOpenCompletion:(NSError *)error FATDeprecated("该api(自2.36.11起)废弃，请使用appletInfo:didOpenCompletion:");
 
-/// 小程序灰度扩展参数
-/// @param appletId 小程序id
-- (NSDictionary *)grayExtensionWithAppletId:(NSString *)appletId;
+/**
+ 小程序关闭完成的事件
+ @param appletId 小程序id
+ @param error 错误对象
+ */
+- (void)applet:(NSString *)appletId didCloseCompletion:(NSError *)error FATDeprecated("该api(自2.36.11起)废弃，请使用appletInfo:didCloseCompletion:");
+
+/**
+ 小程序初始化完成，首页加载出来的事件
+ @param appletId 小程序id
+ @param error 错误对象
+ */
+- (void)applet:(NSString *)appletId initCompletion:(NSError *)error FATDeprecated("该api(自2.36.11起)废弃，请使用appletInfo:initCompletion:");
+
+/**
+ 小程序进入活跃状态的事件
+ @param appletId 小程序id
+ @param error 错误对象
+ */
+- (void)applet:(NSString *)appletId didActive:(NSError *)error FATDeprecated("该api(自2.36.11起)废弃，请使用appletInfo:didActive:");
+
+/**
+ 小程序进入非活跃状态的事件
+ @param appletId 小程序id
+ @param error 错误对象
+ */
+- (void)applet:(NSString *)appletId resignActive:(NSError *)error FATDeprecated("该api(自2.36.11起)废弃，请使用appletInfo:resignActive:");
+
+/**
+ 小程序出错的事件
+ @param appletId 小程序id
+ @param error 错误对象
+ */
+- (void)applet:(NSString *)appletId didFail:(NSError *)error FATDeprecated("该api(自2.36.11起)废弃，请使用appletInfo:didFail:");
+
+/**
+ 小程序被销毁的事件
+ @param appletId 小程序id
+ @param error 错误对象
+ */
+- (void)applet:(NSString *)appletId dealloc:(NSError *)error FATDeprecated("该api(自2.36.11起)废弃，请使用appletInfo:dealloc:");
+
+/**
+ 小程序打开完成的事件
+ @param appletInfo 小程序info
+ @param error 错误对象
+ */
+- (void)appletInfo:(FATAppletInfo *)appletInfo didOpenCompletion:(NSError *)error;
+
+/**
+ 小程序关闭完成的事件
+ @param appletInfo 小程序info
+ @param error 错误对象
+ */
+- (void)appletInfo:(FATAppletInfo *)appletInfo didCloseCompletion:(NSError *)error;
+
+/**
+ 小程序初始化完成，首页加载出来的事件
+ @param appletInfo 小程序info
+ @param error 错误对象
+ */
+- (void)appletInfo:(FATAppletInfo *)appletInfo initCompletion:(NSError *)error;
+
+/**
+ 小程序进入活跃状态的事件
+ @param appletInfo 小程序info
+ @param error 错误对象
+ */
+- (void)appletInfo:(FATAppletInfo *)appletInfo didActive:(NSError *)error;
+
+/**
+ 小程序进入非活跃状态的事件
+ @param appletInfo 小程序info
+ @param error 错误对象
+ */
+- (void)appletInfo:(FATAppletInfo *)appletInfo resignActive:(NSError *)error;
+
+/**
+ 小程序出错的事件
+ @param appletInfo 小程序info
+ @param error 错误对象
+ */
+- (void)appletInfo:(FATAppletInfo *)appletInfo didFail:(NSError *)error;
+
+/**
+ 小程序被销毁的事件
+ @param appletInfo 小程序info
+ @param error 错误对象
+ */
+- (void)appletInfo:(FATAppletInfo *)appletInfo dealloc:(NSError *)error;
 
 #pragma mark - button open-type
 
@@ -53,7 +143,8 @@
 /**
  调用获取用户信息API（getUserInfo） 或者 点击open-type属性为getUserInfo的Button时触发
  @param appletInfo 小程序信息
- 返回值参考格式如下（可由宿主App自定义）：
+ @param bindGetUserInfo 获取用户信息回调
+ result参考格式如下（可由宿主App自定义）：
  {
     nickName = "昵称"
     avatarUrl = “头像地址”
@@ -64,8 +155,29 @@
     userId = "值为[FATClient sharedClient].config.currentUserId" // sdk默认添加
     baseUrl = "值为appletInfo.apiServer" //// sdk默认添加
  }
+ 参考链接：https://www.finclip.com/mop/document/develop/component/form.html#button
 */
-- (NSDictionary *)getUserInfoWithAppletInfo:(FATAppletInfo *)appletInfo;
+- (NSDictionary *)getUserInfoWithAppletInfo:(FATAppletInfo *)appletInfo
+    FATDeprecated("该api(自2.38.0起)废弃，请使用getUserInfoWithAppletInfo:bindGetUserInfo:");
+
+/**
+ 调用获取用户信息API（getUserInfo） 或者 点击open-type属性为getUserInfo的Button时触发
+ @param appletInfo 小程序信息
+ @param bindGetUserInfo 获取用户信息回调
+ result参考格式如下（可由宿主App自定义）：
+ {
+    nickName = "昵称"
+    avatarUrl = “头像地址”
+    gender = "性别"
+    province = "省份"
+    city = "城市"
+    country = "国家"
+    userId = "值为[FATClient sharedClient].config.currentUserId" // sdk默认添加
+    baseUrl = "值为appletInfo.apiServer" //// sdk默认添加
+ }
+ 参考链接：https://www.finclip.com/mop/document/develop/component/form.html#button
+*/
+- (void)getUserInfoWithAppletInfo:(FATAppletInfo *)appletInfo bindGetUserInfo:(void (^)(NSDictionary *result))bindGetUserInfo;
 
 /**
  Button open-type属性为contact，打开客服会话。
@@ -128,57 +240,16 @@
  */
 - (void)chooseAvatarWithAppletInfo:(FATAppletInfo *)appletInfo bindChooseAvatar:(void (^)(NSDictionary *result))bindChooseAvatar;
 
-#pragma mark - applet open and close
-/**
- 小程序打开完成的事件
- @param appletInfo 小程序info
- @param error 错误对象
- */
-- (void)appletInfo:(FATAppletInfo *)appletInfo didOpenCompletion:(NSError *)error;
-
-/**
- 小程序关闭完成的事件
- @param appletInfo 小程序info
- @param error 错误对象
- */
-- (void)appletInfo:(FATAppletInfo *)appletInfo didCloseCompletion:(NSError *)error;
-
-/**
- 小程序初始化完成，首页加载出来的事件
- @param appletInfo 小程序info
- @param error 错误对象
- */
-- (void)appletInfo:(FATAppletInfo *)appletInfo initCompletion:(NSError *)error;
-
-/**
- 小程序进入活跃状态的事件
- @param appletInfo 小程序info
- @param error 错误对象
- */
-- (void)appletInfo:(FATAppletInfo *)appletInfo didActive:(NSError *)error;
-
-/**
- 小程序进入非活跃状态的事件
- @param appletInfo 小程序info
- @param error 错误对象
- */
-- (void)appletInfo:(FATAppletInfo *)appletInfo resignActive:(NSError *)error;
-
-/**
- 小程序出错的事件
- @param appletInfo 小程序info
- @param error 错误对象
- */
-- (void)appletInfo:(FATAppletInfo *)appletInfo didFail:(NSError *)error;
-
-/**
- 小程序被销毁的事件
- @param appletInfo 小程序info
- @param error 错误对象
- */
-- (void)appletInfo:(FATAppletInfo *)appletInfo dealloc:(NSError *)error;
 
 #pragma mark - more menu
+
+/**
+ 右上角胶囊中 【...】的点击事件，可在该事件中弹出自己设计的更多视图。
+ 因此实现了该代理事件，就不会触发下面两个自定义菜单的事件
+ @param appletInfo 小程序信息
+ @path 小程序页面路径，示例：pages/index/index
+ */
+- (void)applet:(FATAppletInfo *)appletInfo didClickMoreBtnAtPath:(NSString *)path FATDeprecated("该api(自2.37.1起)废弃，请使用appletInfo:didClickMoreBtnAtPath:");
 
 /**
  右上角胶囊中 【...】的点击事件，如果返回YES，代表需要自定义菜单视图。
@@ -204,6 +275,67 @@
  */
 - (void)clickCustomItemMenuWithInfo:(NSDictionary *)contentInfo inApplet:(FATAppletInfo *)appletInfo completion:(void (^)(FATExtensionCode code, NSDictionary *result))completion;
 
+#pragma mark - Local Applet
+/**
+ 触发打开其他本地小程序的请求事件
+ 该事件只有离线小程序才会触发。
+ @param appletInfo 小程序对象
+ @param request 小程序request对象，应该直接使用该request对象，不要创建新的对象。
+ @param currentVC 当前小程序的顶层视图控制器
+ @param completion 打开小程序完毕的回调
+ */
+- (void)applet:(FATAppletInfo *)appletInfo
+    navigateToMiniProgram:(FATLocalAppletRequest *)request
+                currentVC:(UIViewController *)currentVC
+               completion:(void (^)(FATExtensionCode code, NSDictionary *result))completion;
+
+/**
+ 本地小程序从宿主App获取zip分包路径（适用于小程序分包加载，小程序分包加载必须实现）
+ 如果有多个小程序的分包放在app包中，为了避免zip分包同名，可以将不同小程序的分包放在不同文件夹中，
+ 并通过create folder references方式引入，代码中通过 文件夹名称/分包名.zip 方式获取分包
+ @param appletInfo 小程序信息
+ @param packDict 分包信息
+ @param zipPathCallback zip分包路径回调，路径获取失败调用 zipPathCallback(nil)
+ */
+- (void)localApplet:(FATAppletInfo *)appletInfo packDict:(NSDictionary *)packDict zipPathCallback:(void (^)(NSString *zipPath))zipPathCallback;
+
+/// 获取本地小程序账号信息
+/// @brief 获取本地小程序账号信息，返回的信息结构:
+/// @{
+///     @"miniProgram": @{
+///         @"appId": ##小程序appId##,
+///         @"envVersion": ##小程序版本##,
+///         @"version": ##线上小程序版本号##
+///     },
+///     @"plugin": @{
+///         @"appId": ##插件appId##,
+///         @"version": ##插件版本号##
+///     }
+/// }
+/// @param appletInfo 小程序信息
+/// @return 小程序账号信息
+- (NSDictionary *)localAppletAccountInfo:(FATAppletInfo *)appletInfo;
+
+#pragma mark-- 小程序配置
+
+/// 设置小程序的Cookie
+/// @param appletId 小程序id
+- (NSDictionary *)getCookieWithAppletInfo:(NSString *)appletId;
+
+/// 给小程序设置配置项,使用场景：需要给某个特定小程序设置特殊配置项
+/// @param appletInfo 小程序信息
+- (FATAppletConfig *)getConfigWithAppletInfo:(FATAppletInfo *)appletInfo;
+
+/// 小程序灰度扩展参数
+/// @param appletId 小程序id
+- (NSDictionary *)grayExtensionWithAppletId:(NSString *)appletId;
+
+#pragma mark - JS SDK
+/// 验证 js-sdk config信息 (未实现该代理方法则默认为验证通过)
+/// @param appletInfo 小程序信息
+/// @param config 验证信息
+/// @param completion 执行完后的回调，验证通过则code返回FATExtensionCodeSuccess，失败返回FATExtensionCodeFailure
+- (void)applet:(FATAppletInfo *)appletInfo onJSSDKConfig:(NSDictionary *)config completion:(void (^)(FATExtensionCode code, NSDictionary *result))completion;
 
 #pragma mark - H5 hook events
 /**
@@ -243,106 +375,5 @@
 /// @param appletInfo 小程序信息
 /// @param watermaskView 水印容器视图，可在这个视图添加文字或图片等水印内容
 - (void)applet:(FATAppletInfo *)appletInfo customizeWatermarkView:(UIView *)watermaskView;
-
-#pragma mark - Local Applet
-/**
- 触发打开其他本地小程序的请求事件
- 该事件只有离线小程序才会触发。
- @param appletInfo 小程序对象
- @param request 小程序request对象，应该直接使用该request对象，不要创建新的对象。
- @param currentVC 当前小程序的顶层视图控制器
- @param completion 打开小程序完毕的回调
- */
-- (void)applet:(FATAppletInfo *)appletInfo
-navigateToMiniProgram:(FATLocalAppletRequest *)request
-     currentVC:(UIViewController *)currentVC
-    completion:(void (^)(FATExtensionCode code, NSDictionary *result))completion;
-
-/**
- 本地小程序从宿主App获取zip分包路径（适用于小程序分包加载，小程序分包加载必须实现）
- 如果有多个小程序的分包放在app包中，为了避免zip分包同名，可以将不同小程序的分包放在不同文件夹中，
- 并通过create folder references方式引入，代码中通过 文件夹名称/分包名.zip 方式获取分包
- @param appletInfo 小程序信息
- @param packDict 分包信息
- @param zipPathCallback zip分包路径回调，路径获取失败调用 zipPathCallback(nil)
- */
-- (void)localApplet:(FATAppletInfo *)appletInfo packDict:(NSDictionary *)packDict zipPathCallback:(void (^)(NSString *zipPath))zipPathCallback;
-
-/// 获取本地小程序账号信息
-/// @brief 获取本地小程序账号信息，返回的信息结构:
-/// @{
-///     @"miniProgram": @{
-///         @"appId": ##小程序appId##,
-///         @"envVersion": ##小程序版本##,
-///         @"version": ##线上小程序版本号##
-///     },
-///     @"plugin": @{
-///         @"appId": ##插件appId##,
-///         @"version": ##插件版本号##
-///     }
-/// }
-/// @param appletInfo 小程序信息
-/// @return 小程序账号信息
-- (NSDictionary *)localAppletAccountInfo:(FATAppletInfo *)appletInfo;
-
-#pragma mark - deprecated methods
-
-/**
- 小程序打开完成的事件
- @param appletId 小程序id
- @param error 错误对象
- */
-- (void)applet:(NSString *)appletId didOpenCompletion:(NSError *)error FATDeprecated("该api(自2.36.11起)废弃，请使用appletInfo:didOpenCompletion:");
-
-
-/**
- 小程序关闭完成的事件
- @param appletId 小程序id
- @param error 错误对象
- */
-- (void)applet:(NSString *)appletId didCloseCompletion:(NSError *)error FATDeprecated("该api(自2.36.11起)废弃，请使用appletInfo:didCloseCompletion:");
-
-/**
- 小程序初始化完成，首页加载出来的事件
- @param appletId 小程序id
- @param error 错误对象
- */
-- (void)applet:(NSString *)appletId initCompletion:(NSError *)error FATDeprecated("该api(自2.36.11起)废弃，请使用appletInfo:initCompletion:");
-
-/**
- 小程序进入活跃状态的事件
- @param appletId 小程序id
- @param error 错误对象
- */
-- (void)applet:(NSString *)appletId didActive:(NSError *)error FATDeprecated("该api(自2.36.11起)废弃，请使用appletInfo:didActive:");
-
-/**
- 小程序进入非活跃状态的事件
- @param appletId 小程序id
- @param error 错误对象
- */
-- (void)applet:(NSString *)appletId resignActive:(NSError *)error FATDeprecated("该api(自2.36.11起)废弃，请使用appletInfo:resignActive:");
-
-/**
- 小程序出错的事件
- @param appletId 小程序id
- @param error 错误对象
- */
-- (void)applet:(NSString *)appletId didFail:(NSError *)error FATDeprecated("该api(自2.36.11起)废弃，请使用appletInfo:didFail:");
-
-/**
- 小程序被销毁的事件
- @param appletId 小程序id
- @param error 错误对象
- */
-- (void)applet:(NSString *)appletId dealloc:(NSError *)error FATDeprecated("该api(自2.36.11起)废弃，请使用appletInfo:dealloc:");
-
-/**
- 右上角胶囊中 【...】的点击事件，可在该事件中弹出自己设计的更多视图。
- 因此实现了该代理事件，就不会触发下面两个自定义菜单的事件
- @param appletInfo 小程序信息
- @path 小程序页面路径，示例：pages/index/index
- */
-- (void)applet:(FATAppletInfo *)appletInfo didClickMoreBtnAtPath:(NSString *)path FATDeprecated("该api(自2.37.1起)废弃，请使用appletInfo:didClickMoreBtnAtPath:");
 
 @end

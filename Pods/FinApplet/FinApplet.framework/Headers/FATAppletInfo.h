@@ -93,7 +93,11 @@
  */
 @property (nonatomic, copy) NSString *cryptInfo;
 
+//权限提示
+
 - (NSString *)appletVersionTypeName;
 - (NSString *)appletVersionTypeEnv;
+
+
 
 @end

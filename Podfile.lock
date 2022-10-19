@@ -1,20 +1,21 @@
 PODS:
-  - FinApplet (2.37.11)
+  - FinApplet (2.38.0-alpha20220914v03)
   - WechatOpenSDK (1.9.7)
 
 DEPENDENCIES:
-  - FinApplet
+  - FinApplet (= 2.38.0-alpha20220914v03)
   - WechatOpenSDK
 
 SPEC REPOS:
-  trunk:
+  ssh://git.finogeeks.club/finoapp-ios/DevPods:
     - FinApplet
+  trunk:
     - WechatOpenSDK
 
 SPEC CHECKSUMS:
-  FinApplet: a79adb6841bd6090da812f5e5881d3d358aaf1b5
+  FinApplet: 2f995bac0d62d4bb7d92797b9823cb766c939e81
   WechatOpenSDK: 2f0ae448c7525cb5c27db5f7aa0f568de0988fa4
 
-PODFILE CHECKSUM: 517c6cc5bf9d3f5566f63bcd996de35fe176c9f3
+PODFILE CHECKSUM: 7ce97f3b882fe4f1198ccd9ca85e372cbb23834c
 
 COCOAPODS: 1.11.3

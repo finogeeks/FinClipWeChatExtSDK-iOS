@@ -138,7 +138,6 @@
  */
 @property (nonatomic, copy) NSArray *packages;
 
-
 /**
  小程序压缩包密码，必填
  */

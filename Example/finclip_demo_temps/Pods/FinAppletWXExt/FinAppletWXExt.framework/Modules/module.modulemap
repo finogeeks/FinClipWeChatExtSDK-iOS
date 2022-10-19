@@ -1,0 +1,6 @@
+framework module FinAppletWXExt {
+  umbrella header "FinAppletWXExt.h"
+
+  export *
+  module * { export * }
+}

@@ -19,6 +19,12 @@
 #import "FATSearchAppletRequest.h"
 #import "FATError.h"
 #import "FATAppletConfig.h"
+#import "FATAppletButtonOpenTypeDelegate.h"
+#import "FATAppletLifeCycleDelegate.h"
+#import "FATAppletMoreMenuDelegate.h"
+#import "FATLocalAppletDelegate.h"
+#import "FATAppletConfigurationDelegate.h"
+#import "FATAppletWaterMaskAndScreenCaptureDelegate.h"
 
 @interface FATClient : NSObject
 
@@ -34,7 +40,37 @@
 /// 日志记录快捷开关（未配置记录等级时，默认等级为FATLogLevelDebug）
 @property (nonatomic, assign, getter=isEnableLog) BOOL enableLog;
 
-@property (nonatomic, weak) id<FATAppletDelegate> delegate;
+@property (nonatomic, weak) id<FATAppletDelegate> delegate __attribute__((deprecated("该属性(自2.37.12起)废弃，请使用buttonOpenTypeDelegate，lifeCycleDelegate，moreMenuDelegate，localAppletDelegate，configurationDelegate，waterMaskAndScreenCaptureDelegate等属性的能力")));
+
+/**
+ button的open-type能力相关的代理事件
+ */
+@property (nonatomic, weak) id<FATAppletButtonOpenTypeDelegate> buttonOpenTypeDelegate;
+
+/**
+ 小程序生命周期相关的代理事件
+ */
+@property (nonatomic, weak) id<FATAppletLifeCycleDelegate> lifeCycleDelegate;
+
+/**
+ 右上角胶囊和更多按钮中自定义的菜单相关的代理事件
+ */
+@property (nonatomic, weak) id<FATAppletMoreMenuDelegate> moreMenuDelegate;
+
+/**
+ 本地小程序相关的代理事件
+ */
+@property (nonatomic, weak) id<FATLocalAppletDelegate> localAppletDelegate;
+
+/**
+ 小程序设置配置项,灰度扩展,H5 hook的代理事件
+ */
+@property (nonatomic, weak) id<FATAppletConfigurationDelegate> configurationDelegate;
+
+/**
+ 小程序自定义添加水印和截屏，录屏的代理事件
+ */
+@property (nonatomic, weak) id<FATAppletWaterMaskAndScreenCaptureDelegate> waterMaskAndScreenCaptureDelegate;
 
 /** nativeView 控制器*/
 @property (nonatomic, strong) id<IFATNativeViewManager> nativeViewManager;
@@ -96,6 +132,10 @@
  */
 - (BOOL)handleOpenUniversalLinkURL:(NSURL *)URL;
 
+/// 打开个人信息与权限管理页面
+/// @param parentViewController 父控制器，打开的个人信息与权限管理页面会在父控制器上模态弹出
+- (void)openPrivacyManage:(UIViewController *)parentViewController;
+
 /// 当前正在使用的小程序
 - (FATAppletInfo *)currentApplet;
 
@@ -145,7 +185,7 @@
  @param handler 回调
  @return 返回注册结果
  */
-- (BOOL)registerSyncExtensionApi:(NSString *)syncExtApiName handler:(NSDictionary *(^)(FATAppletInfo *appletInfo, id param))handler;
+- (BOOL)registerSyncExtensionApi:(NSString *)syncExtApiName handler:(NSDictionary * (^)(FATAppletInfo *appletInfo, id param))handler;
 
 /**
  为HTML 注册要调用的原生 api
@@ -294,7 +334,6 @@
 /// @param completion 结果回调
 - (void)parseAppletInfoFromWXQrCode:(NSString *)qrCode apiServer:(NSString *)apiServer completion:(void (^)(FATAppletSimpleInfo *appInfo, FATError *aError))completion;
 
-
 #pragma mark - deprecate api
 
 /**
@@ -315,7 +354,7 @@
 - (void)startRemoteApplet:(NSString *)appletId
                startParams:(NSDictionary *)startParams
     InParentViewController:(UIViewController *)parentVC
-               completion:(void (^)(BOOL result, NSError *error))completion __attribute__((deprecated("该api(自2.23.5起)废弃，请使用startAppletWithRequest:InParentViewController:completion:closeCompletioncloseCompletion")));
+                completion:(void (^)(BOOL result, NSError *error))completion __attribute__((deprecated("该api(自2.23.5起)废弃，请使用startAppletWithRequest:InParentViewController:completion:closeCompletioncloseCompletion")));
 
 /**
  打开服务器上的小程序，带启动动画参数
@@ -337,7 +376,7 @@
                startParams:(NSDictionary *)startParams
     InParentViewController:(UIViewController *)parentVC
            transitionStyle:(FATTranstionStyle)transitionStyle
-               completion:(void (^)(BOOL result, NSError *error))completion __attribute__((deprecated("该api(自2.23.5起)废弃，请使用startAppletWithRequest:InParentViewController:completion:closeCompletioncloseCompletion")));
+                completion:(void (^)(BOOL result, NSError *error))completion __attribute__((deprecated("该api(自2.23.5起)废弃，请使用startAppletWithRequest:InParentViewController:completion:closeCompletioncloseCompletion")));
 
 /**
  打开服务器上的小程序，带启动动画参数、关闭回调
@@ -363,7 +402,7 @@
            transitionStyle:(FATTranstionStyle)transitionStyle
                   animated:(BOOL)animated
                 completion:(void (^)(BOOL result, NSError *error))completion
-          closeCompletion:(dispatch_block_t)closeCompletion __attribute__((deprecated("该api(自2.23.5起)废弃，请使用startAppletWithRequest:InParentViewController:completion:closeCompletioncloseCompletion")));
+           closeCompletion:(dispatch_block_t)closeCompletion __attribute__((deprecated("该api(自2.23.5起)废弃，请使用startAppletWithRequest:InParentViewController:completion:closeCompletioncloseCompletion")));
 
 /**
  打开服务器上的小程序，带提交序列、动画参数
@@ -413,7 +452,7 @@
     InParentViewController:(UIViewController *)parentVC
            transitionStyle:(FATTranstionStyle)transitionStyle
                   animated:(BOOL)animated
-               completion:(void (^)(BOOL result, NSError *error))completion __attribute__((deprecated("该api(自2.23.5起)废弃，请使用startAppletWithRequest:InParentViewController:completion:closeCompletioncloseCompletion")));
+                completion:(void (^)(BOOL result, NSError *error))completion __attribute__((deprecated("该api(自2.23.5起)废弃，请使用startAppletWithRequest:InParentViewController:completion:closeCompletioncloseCompletion")));
 
 /**
 关闭当前的小程序

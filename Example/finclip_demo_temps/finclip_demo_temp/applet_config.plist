@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>sdkKey</key>
+	<string>***</string>
+	<key>sdkSecret</key>
+	<string>***</string>
+	<key>apiServer</key>
+	<string>https://finchat-mop-b.finogeeks.club</string>
+	<key>appletId</key>
+	<string>6311a56a6eb3a900014ca885</string>
+</dict>
+</plist>

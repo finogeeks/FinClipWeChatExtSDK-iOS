@@ -125,6 +125,28 @@
 @property (nonatomic, assign) CGFloat closeBtnLeftMargin;
 
 /**
+ 胶囊里的浅色定位按钮的图片对象，如果不传，会使用默认图标
+ （暗黑模式）
+ */
+@property (nonatomic, strong) UIImage *locationLightImage;
+
+/**
+ 胶囊里的深色定位按钮的图片对象，如果不传，会使用默认图标
+ */
+@property (nonatomic, strong) UIImage *locationDarkImage;
+
+/**
+ 胶囊里的浅色麦克风按钮的图片对象，如果不传，会使用默认图标
+ （暗黑模式）
+ */
+@property (nonatomic, strong) UIImage *microphoneLightImage;
+
+/**
+ 胶囊里的深色麦克风按钮的图片对象，如果不传，会使用默认图标
+ */
+@property (nonatomic, strong) UIImage *microphoneDarkImage;
+
+/**
  胶囊里的浅色更多按钮的图片对象，如果不传，会使用默认图标
  （暗黑模式）
  */
@@ -202,6 +224,13 @@
 @property (nonatomic, strong) FATNavHomeConfig *navHomeConfig;
 
 /**
+ 导航栏返回按钮的图片对象，如果不传，会使用默认图标
+ 图片必须是png格式且背景透明
+ 明亮模式下，图片显示为黑色；暗黑模式下，图片显示为白色
+ */
+@property (nonatomic, strong) UIImage *navigationBackImage;
+
+/**
  小程序里加载H5时进度条的颜色
  */
 @property (nonatomic, strong) UIColor *progressBarColor;
@@ -262,6 +291,15 @@
  注入小程序统称appletText字符串，默认为“小程序”。
 */
 @property (nonatomic, copy) NSString *appletText;
+
+/**
+ 打开小程序时的默认动画方式，默认为FATTranstionStyleUp。
+ 该属性主要针对非api方式打开小程序时的动画缺省值。主要改变如下场景的动画方式：
+ 1. scheme 打开小程序；
+ 2. universal link 打开小程序；
+ 3. navigateToMiniprogram
+ */
+@property (nonatomic, assign) FATTranstionStyle transtionStyle;
 
 /**
  是否隐藏转场页的关闭按钮。默认为NO

@@ -28,6 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *currentUserId;
 
 /**
+ 产品的标识，非必传，默认为存储目录里的finclip，finogeeks和userAgent里的finogeeks
+ */
+@property (nonatomic, copy) NSString *productIdentification;
+
+/**
 是否不让SDK申请权限
 如果设置为YES，则SDK内使用权限的api，不会主动申请权限
 */
@@ -40,10 +45,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL appletAutoAuthorize;
 
 /**
-是否禁用SDK的监管接口API（默认开启：NO）
-如果设置为YES，则SDK禁用监管接口API
+ 是否禁用SDK的监管接口API（默认开启：NO）
+ 如果设置为YES，则SDK禁用监管接口API
 */
 @property (nonatomic, assign) BOOL disableGetSuperviseInfo;
+
+/**
+ 是否忽略webview的证书校验，默认为NO,进行校验
+ 如果设置为YES，则忽略校验Https的证书
+*/
+@property (nonatomic, assign) BOOL ignoreWebviewCertAuth;
 
 /**
 后台自动检查更新的小程序个数
@@ -152,7 +163,6 @@ apm 统计的扩展信息
  @param storeConfigs 应用市场对象数组
 */
 + (instancetype)configWithStoreConfigs:(NSArray<FATStoreConfig *> *)storeConfigs;
-
 
 #pragma mark - deprecated api & property
 /**
