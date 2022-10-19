@@ -7,10 +7,10 @@
 </p>
 
 <p align="center"> 
-    <strong>FinClip Android DEMO</strong></br>
+    <strong>FinClip iOS DEMO</strong></br>
 <p>
 <p align="center"> 
-        本项目提供在 Android 环境中接入凡泰定制的用于提供小程序部分微信SDK能力的示例
+        本项目提供在 iOS 环境中接入凡泰定制的用于提供小程序部分微信SDK能力的示例
 <p>
 
 <p align="center"> 
