@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BE0F69F290A85D4001B672E /* FATClient+WechatExt.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BE0F69E290A85D4001B672E /* FATClient+WechatExt.h */; };
 		5832AA49C69A73CF641DE151 /* Pods_FinAppletWXExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EED51491A230AC3B09CD8F5A /* Pods_FinAppletWXExt.framework */; };
 		EE7A6E9328C05DCD0044ABE4 /* FATWXExtButtonOpenTypeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = EE7A6E9228C05DCD0044ABE4 /* FATWXExtButtonOpenTypeDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE90430C28B375AF00BEB853 /* FATWXUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = EE90430A28B375AF00BEB853 /* FATWXUtils.h */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2BE0F69E290A85D4001B672E /* FATClient+WechatExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FATClient+WechatExt.h"; sourceTree = "<group>"; };
 		34A1FC8C0B66F40BD85005C0 /* Pods-FinAppletWXExt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinAppletWXExt.debug.xcconfig"; path = "Target Support Files/Pods-FinAppletWXExt/Pods-FinAppletWXExt.debug.xcconfig"; sourceTree = "<group>"; };
 		E13C68B857096563FF053F23 /* Pods-FinAppletWXExt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinAppletWXExt.release.xcconfig"; path = "Target Support Files/Pods-FinAppletWXExt/Pods-FinAppletWXExt.release.xcconfig"; sourceTree = "<group>"; };
 		EE7A6E9228C05DCD0044ABE4 /* FATWXExtButtonOpenTypeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FATWXExtButtonOpenTypeDelegate.h; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		EEA3BB2B28ACDA300091D2DF /* FinAppletWXExt */ = {
 			isa = PBXGroup;
 			children = (
+				2BE0F69E290A85D4001B672E /* FATClient+WechatExt.h */,
 				EEA3BB2C28ACDA300091D2DF /* FinAppletWXExt.h */,
 				EE85854228B3B5F7007B5608 /* Info.plist */,
 				EEA3BB4B28AE77410091D2DF /* FATWXExtComponent.h */,
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEA3BB7228B25E680091D2DF /* FATDelegateClientHelper.h in Headers */,
+				2BE0F69F290A85D4001B672E /* FATClient+WechatExt.h in Headers */,
 				EEA3BB5128AE7AA90091D2DF /* FATExt_login.h in Headers */,
 				EEA3BB5928AE7AD40091D2DF /* FATExt_requestPayment.h in Headers */,
 				EEA3BB4928AE72810091D2DF /* FATWXExtBaseApi.h in Headers */,
