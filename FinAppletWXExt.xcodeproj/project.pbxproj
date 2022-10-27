@@ -70,6 +70,7 @@
 		EEA3BB6D28B117730091D2DF /* FATWXApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FATWXApiManager.m; sourceTree = "<group>"; };
 		EEA3BB7028B25E680091D2DF /* FATDelegateClientHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FATDelegateClientHelper.h; sourceTree = "<group>"; };
 		EEA3BB7128B25E680091D2DF /* FATDelegateClientHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FATDelegateClientHelper.m; sourceTree = "<group>"; };
+		EED51491A230AC3B09CD8F5A /* Pods_FinAppletWXExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinAppletWXExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF32ABE28B75802008DCC45 /* FATExt_testJump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FATExt_testJump.m; sourceTree = "<group>"; };
 		EEF32ABF28B75802008DCC45 /* FATExt_testJump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FATExt_testJump.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
