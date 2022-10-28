@@ -6,6 +6,7 @@
 //
 
 #import "FATWXExtBaseApi.h"
+#import "FATClient+WechatExt.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
