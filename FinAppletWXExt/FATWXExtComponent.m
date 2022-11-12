@@ -20,26 +20,6 @@
     BOOL isSuccess = [WXApi registerApp:appld universalLink:universalLink];
     
     [FATClient sharedClient].buttonOpenTypeDelegate = [FATDelegateClientHelper sharedHelper];
-
-    [[FATClient sharedClient] registerExtensionApi:@"login" handler:^(FATAppletInfo *appletInfo, id param, FATExtensionApiCallback callback) {
-        FATWXExtBaseApi *extBaseApi = [FATWXExtBaseApi apiWithCommand:@"login" param:param];
-        [extBaseApi setupApiWithCallback:callback];
-    }];
-
-    [[FATClient sharedClient] registerExtensionApi:@"getUserProfile" handler:^(FATAppletInfo *appletInfo, id param, FATExtensionApiCallback callback) {
-        FATWXExtBaseApi *extBaseApi = [FATWXExtBaseApi apiWithCommand:@"getUserProfile" param:param];
-        [extBaseApi setupApiWithCallback:callback];
-    }];
-    
-    [[FATClient sharedClient] registerExtensionApi:@"requestPayment" handler:^(FATAppletInfo *appletInfo, id param, FATExtensionApiCallback callback) {
-        FATWXExtBaseApi *extBaseApi = [FATWXExtBaseApi apiWithCommand:@"requestPayment" param:param];
-        [extBaseApi setupApiWithCallback:callback];
-    }];
-    
-    [[FATClient sharedClient] registerExtensionApi:@"testJump" handler:^(FATAppletInfo *appletInfo, id param, FATExtensionApiCallback callback) {
-        FATWXExtBaseApi *extBaseApi = [FATWXExtBaseApi apiWithCommand:@"testJump" param:param];
-        [extBaseApi setupApiWithCallback:callback];
-    }];
     
     return isSuccess;
 }

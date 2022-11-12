@@ -29,7 +29,7 @@ sed -i "" "s/_FinAppletWXExt_version_/${version}/g" FinAppletWXExt-Min.podspec
 cp -f FinAppletWXExt.podspec FinAppletWXExt.dist.podspec
 
 echo "📣📣📣>>>>>>>>>>>[Release] start upgrading FinPods"
-git clone ssh://git.finogeeks.club/finoapp-ios/FinPods
+git clone ssh://gitlab.finogeeks.club/finclip-ios/FinPods
 rm -rf FinPods/FinAppletWXExt/${version}
 rm -rf FinPods/FinAppletWXExt-Min/${version}
 

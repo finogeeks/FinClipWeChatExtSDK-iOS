@@ -13,22 +13,24 @@
 
 @implementation FATExt_login
 
-- (void)setupApiWithCallback:(FATExtensionApiCallback)callback {
-    FATAppletInfo *appInfo = [[FATClient sharedClient] currentApplet];
-    NSDictionary *info = appInfo.wechatLoginInfo;
+- (void)setupApiWithSuccess:(void (^)(NSDictionary<NSString *, id> *successResult))success
+                    failure:(void (^)(NSDictionary *failResult))failure
+                     cancel:(void (^)(NSDictionary *cancelResult))cancel {
+    
+    NSDictionary *info = self.appletInfo.wechatLoginInfo;
     NSString *pathString = info[@"profileUrl"];
     if ([FATWXUtils fat_isEmptyWithString:pathString]) {
-        if (callback) {
-            callback(FATExtensionCodeFailure,@{@"errMsg":@"path not exist"});
+        if (failure) {
+            failure(@{@"errMsg":@"path not exist"});
         }
         return;
     }
     WXLaunchMiniProgramReq *launchMiniProgramReq = [WXLaunchMiniProgramReq object];
     launchMiniProgramReq.userName = info[@"wechatOriginId"];
     launchMiniProgramReq.path = pathString;
-    if (appInfo.appletVersionType == FATAppletVersionTypeRelease) {
+    if (self.appletInfo.appletVersionType == FATAppletVersionTypeRelease) {
         launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease; //正式版
-    } else if (appInfo.appletVersionType == FATAppletVersionTypeTrial) {
+    } else if (self.appletInfo.appletVersionType == FATAppletVersionTypeTrial) {
         launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview; //体验版
     } else {
         launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest; //开发版
@@ -39,9 +41,19 @@
 
     [FATWXApiManager sharedManager].wxResponse = ^(WXLaunchMiniProgramResp *resp) {
         NSDictionary *dic = [FATWXUtils dictionaryWithJsonString:resp.extMsg];
-        if (callback) {
-            callback([dic[@"errMsg"] containsString:@"fail"] ? FATExtensionCodeFailure : FATExtensionCodeSuccess, dic);
+        BOOL result = [dic[@"errMsg"] containsString:@"fail"] ? NO : YES;
+        if (result) {
+            if (success) {
+                success(dic);
+            }
+        } else {
+            if (failure) {
+                failure(dic);
+            }
         }
+//        if (callback) {
+//            callback([dic[@"errMsg"] containsString:@"fail"] ? FATExtensionCodeFailure : FATExtensionCodeSuccess, dic);
+//        }
     };
 }
 
