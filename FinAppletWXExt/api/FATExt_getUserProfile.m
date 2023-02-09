@@ -13,12 +13,13 @@
 
 @implementation FATExt_getUserProfile
 
-- (void)setupApiWithCallback:(FATExtensionApiCallback)callback {
-    FATAppletInfo *appInfo = [[FATClient sharedClient] currentApplet];
-    [[FATClient sharedClient] fat_requestAppletAuthorize:7 appletId:appInfo.appId complete:^(NSInteger status) {
+- (void)setupApiWithSuccess:(void (^)(NSDictionary<NSString *, id> *successResult))success
+                    failure:(void (^)(NSDictionary *failResult))failure
+                     cancel:(void (^)(NSDictionary *cancelResult))cancel {
+    [[FATClient sharedClient] fat_requestAppletAuthorize:7 appletId:self.appletInfo.appId complete:^(NSInteger status) {
         if (status != 0) {
-            if (callback) {
-                callback(FATExtensionCodeFailure,@{@"errMsg":@"auth deny"});
+            if (failure) {
+                failure(@{@"errMsg":@"auth deny"});
             }
             return;
         }
@@ -28,8 +29,8 @@
         NSDictionary *info = appInfo.wechatLoginInfo;
         NSString *pathString = info[@"profileUrl"];
         if ([FATWXUtils fat_isEmptyWithString:pathString]) {
-            if (callback) {
-                callback(FATExtensionCodeFailure,@{@"errMsg":@"path not exist"});
+            if (failure) {
+                failure(@{@"errMsg":@"path not exist"});
             }
             return;
         }
@@ -49,13 +50,19 @@
         
         [FATWXApiManager sharedManager].wxResponse = ^(WXLaunchMiniProgramResp *resp) {
             NSDictionary *dic = [FATWXUtils dictionaryWithJsonString:resp.extMsg];
-            if (callback) {
-                callback([dic[@"errMsg"] containsString:@"fail"] ? FATExtensionCodeFailure : FATExtensionCodeSuccess, dic);
-            }
-        };
+            
+            BOOL result = [dic[@"errMsg"] containsString:@"fail"] ? NO : YES;
+            if (result) {
+                if (success) {
+                    success(dic);
+                }
+            } else {
+                if (failure) {
+                    failure(dic);
+                }
+            }};
+        
     }];
-    
-    
 }
 
 @end
