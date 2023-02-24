@@ -53,12 +53,12 @@ platform :ios do
     )
 
     scp(
-      host: "106.52.4.150",
+      host: "192.168.0.35",
       username: "finchat",
       password: "abcd@@123",
       upload: {
         src: "dist/FinAppletWXExt-Min-#{version}.zip",
-        dst: "/mnt/data/ci/app/html/finchat/sdk"
+        dst: "/data/ci/app/html/finchat/sdk"
       }
     )
 
@@ -81,12 +81,12 @@ platform :ios do
     )
 
     scp(
-      host: "106.52.4.150",
+      host: "192.168.0.35",
       username: "finchat",
       password: "abcd@@123",
       upload: {
         src: "dist/FinAppletWXExt-#{version}.zip",
-        dst: "/mnt/data/ci/app/html/finchat/sdk"
+        dst: "/data/ci/app/html/finchat/sdk"
       }
     )
 
@@ -134,12 +134,12 @@ platform :ios do
     )
 
     scp(
-      host: "106.52.4.150",
+      host: "192.168.0.35",
       username: "finchat",
       password: "abcd@@123",
       upload: {
         src: "dist/FinAppletWXExt-dev-#{version}.zip",
-        dst: "/mnt/data/ci/app/html/finchat/sdk"
+        dst: "/data/ci/app/html/finchat/sdk"
       }
     )
 
