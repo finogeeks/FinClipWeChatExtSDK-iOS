@@ -6,10 +6,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FATWXUtils : NSObject
+
++ (UIViewController *)topViewController;
+
++  (UIViewController *)topViewController:(UIViewController *)rootViewController;
 
 + (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
 
