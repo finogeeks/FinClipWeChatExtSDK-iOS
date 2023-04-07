@@ -2,7 +2,8 @@ platform :ios, "9.0"
 source 'ssh://gitlab.finogeeks.club/finclip-ios/DevPods'
 source 'ssh://gitlab.finogeeks.club/finclip-ios/FinPods'
 source 'https://cdn.cocoapods.org/'
-use_frameworks!
+#source 'https://github.com/CocoaPods/Specs.git' 
+
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|
@@ -33,7 +34,7 @@ inhibit_all_warnings!
 
 target "FinAppletWXExt" do
     project 'FinAppletWXExt.xcodeproj'
-    pod 'FinApplet','2.40.2-dev20230407v08'
+    pod 'FinApplet','2.40.3'
     pod 'WechatOpenSDK'
 end
 
