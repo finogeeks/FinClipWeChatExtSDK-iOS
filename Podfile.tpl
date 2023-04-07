@@ -1,5 +1,5 @@
 platform :ios, "9.0"
-source 'ssh://git.finogeeks.club/finoapp-ios/FinPods'
+source 'ssh://gitlab.finogeeks.club/finclip-ios/DevPods'
 source 'ssh://gitlab.finogeeks.club/finclip-ios/FinPods'
 source 'https://cdn.cocoapods.org/'
 #source 'https://github.com/CocoaPods/Specs.git' 
