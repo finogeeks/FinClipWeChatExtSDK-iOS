@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BC2F0C3291BE3E0005AF700 /* FATClient+WechatExt.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC2F0C2291BE3E0005AF700 /* FATClient+WechatExt.h */; };
+		781855FE523AD099BF882A31 /* Pods_FinAppletWXExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D1E820022A24E82C13690F /* Pods_FinAppletWXExt.framework */; };
 		EE7A6E9328C05DCD0044ABE4 /* FATWXExtButtonOpenTypeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = EE7A6E9228C05DCD0044ABE4 /* FATWXExtButtonOpenTypeDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE90430C28B375AF00BEB853 /* FATWXUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = EE90430A28B375AF00BEB853 /* FATWXUtils.h */; };
 		EE90430D28B375AF00BEB853 /* FATWXUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EE90430B28B375AF00BEB853 /* FATWXUtils.m */; };
@@ -31,7 +32,6 @@
 		EEA3BB7328B25E680091D2DF /* FATDelegateClientHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB7128B25E680091D2DF /* FATDelegateClientHelper.m */; };
 		EEF32AC028B75802008DCC45 /* FATExt_testJump.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF32ABE28B75802008DCC45 /* FATExt_testJump.m */; };
 		EEF32AC128B75802008DCC45 /* FATExt_testJump.h in Headers */ = {isa = PBXBuildFile; fileRef = EEF32ABF28B75802008DCC45 /* FATExt_testJump.h */; };
-		F45D1688DA43AEB618C6B57A /* Pods_FinAppletWXExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99C5AC8B1934C129964847C /* Pods_FinAppletWXExt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,9 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26D1E820022A24E82C13690F /* Pods_FinAppletWXExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinAppletWXExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC2F0C2291BE3E0005AF700 /* FATClient+WechatExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FATClient+WechatExt.h"; sourceTree = "<group>"; };
 		34A1FC8C0B66F40BD85005C0 /* Pods-FinAppletWXExt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinAppletWXExt.debug.xcconfig"; path = "Target Support Files/Pods-FinAppletWXExt/Pods-FinAppletWXExt.debug.xcconfig"; sourceTree = "<group>"; };
-		D99C5AC8B1934C129964847C /* Pods_FinAppletWXExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinAppletWXExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13C68B857096563FF053F23 /* Pods-FinAppletWXExt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinAppletWXExt.release.xcconfig"; path = "Target Support Files/Pods-FinAppletWXExt/Pods-FinAppletWXExt.release.xcconfig"; sourceTree = "<group>"; };
 		EE7A6E9228C05DCD0044ABE4 /* FATWXExtButtonOpenTypeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FATWXExtButtonOpenTypeDelegate.h; sourceTree = "<group>"; };
 		EE85854228B3B5F7007B5608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F45D1688DA43AEB618C6B57A /* Pods_FinAppletWXExt.framework in Frameworks */,
+				781855FE523AD099BF882A31 /* Pods_FinAppletWXExt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +99,7 @@
 		6217728CEDDD16FF1D0342BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D99C5AC8B1934C129964847C /* Pods_FinAppletWXExt.framework */,
+				26D1E820022A24E82C13690F /* Pods_FinAppletWXExt.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
