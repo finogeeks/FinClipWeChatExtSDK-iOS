@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BC2F0C3291BE3E0005AF700 /* FATClient+WechatExt.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC2F0C2291BE3E0005AF700 /* FATClient+WechatExt.h */; };
-		8C355194E6ACB607471310D4 /* libPods-FinAppletWXExt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 148A11B76F7B5CBB4F5FE09E /* libPods-FinAppletWXExt.a */; };
+		781855FE523AD099BF882A31 /* Pods_FinAppletWXExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D1E820022A24E82C13690F /* Pods_FinAppletWXExt.framework */; };
 		EE7A6E9328C05DCD0044ABE4 /* FATWXExtButtonOpenTypeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = EE7A6E9228C05DCD0044ABE4 /* FATWXExtButtonOpenTypeDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE90430C28B375AF00BEB853 /* FATWXUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = EE90430A28B375AF00BEB853 /* FATWXUtils.h */; };
 		EE90430D28B375AF00BEB853 /* FATWXUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EE90430B28B375AF00BEB853 /* FATWXUtils.m */; };
@@ -45,7 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		148A11B76F7B5CBB4F5FE09E /* libPods-FinAppletWXExt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FinAppletWXExt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26D1E820022A24E82C13690F /* Pods_FinAppletWXExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinAppletWXExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC2F0C2291BE3E0005AF700 /* FATClient+WechatExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FATClient+WechatExt.h"; sourceTree = "<group>"; };
 		34A1FC8C0B66F40BD85005C0 /* Pods-FinAppletWXExt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinAppletWXExt.debug.xcconfig"; path = "Target Support Files/Pods-FinAppletWXExt/Pods-FinAppletWXExt.debug.xcconfig"; sourceTree = "<group>"; };
 		E13C68B857096563FF053F23 /* Pods-FinAppletWXExt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinAppletWXExt.release.xcconfig"; path = "Target Support Files/Pods-FinAppletWXExt/Pods-FinAppletWXExt.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C355194E6ACB607471310D4 /* libPods-FinAppletWXExt.a in Frameworks */,
+				781855FE523AD099BF882A31 /* Pods_FinAppletWXExt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +99,7 @@
 		6217728CEDDD16FF1D0342BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				148A11B76F7B5CBB4F5FE09E /* libPods-FinAppletWXExt.a */,
+				26D1E820022A24E82C13690F /* Pods_FinAppletWXExt.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
