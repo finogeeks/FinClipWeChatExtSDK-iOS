@@ -16,7 +16,7 @@
 - (void)setupApiWithSuccess:(void (^)(NSDictionary<NSString *, id> *successResult))success
                     failure:(void (^)(NSDictionary *failResult))failure
                      cancel:(void (^)(NSDictionary *cancelResult))cancel {
-    [[FATClient sharedClient] fat_requestAppletAuthorize:7 appletId:self.appletInfo.appId complete:^(NSInteger status) {
+    [[FATClient sharedClient] fat_requestAppletAuthorize:FATAuthorizationTypeUserProfile appletId:self.appletInfo.appId complete:^(NSInteger status) {
         if (status != 0) {
             if (failure) {
                 failure(@{@"errMsg":@"auth deny"});
