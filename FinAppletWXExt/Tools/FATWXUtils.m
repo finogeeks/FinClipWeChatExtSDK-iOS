@@ -66,4 +66,14 @@
     return NO;
 }
 
++ (NSDictionary *)checkDataCode:(NSDictionary *)data {
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:data];
+    BOOL isFail = [dic[@"errMsg"] containsString:@"fail"] || [dic[@"errMsg"] containsString:@"wechatOriginId not exist"] || [dic[@"errMsg"] containsString:@"path not exist"];
+    if (isFail) {
+        [dic setValue:@"fail" forKey:@"fatErrCode"];
+    }
+    return dic;
+}
+
+
 @end

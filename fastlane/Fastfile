@@ -52,6 +52,10 @@ platform :ios do
       output_path: "dist/FinAppletWXExt-Min-#{version}.zip"
     )
 
+    # zipFileName ="FinAppletWXExt-Min-#{version}.zip"
+    # path=Dir.pwd
+    # sh("coscli cp #{path}/../dist/#{zipFileName} cos://static-1251849568/finchat/sdk/#{zipFileName} --meta=x-cos-meta-build-type:release")
+  
     scp(
       host: "192.168.0.35",
       username: "finchat",
@@ -80,6 +84,10 @@ platform :ios do
       output_path: "dist/FinAppletWXExt-#{version}.zip"
     )
 
+    # zipFileName ="FinAppletWXExt-#{version}.zip"
+    # path=Dir.pwd
+    # sh("coscli cp #{path}/../dist/#{zipFileName} cos://static-1251849568/finchat/sdk/#{zipFileName} --meta=x-cos-meta-build-type:release")
+  
     scp(
       host: "192.168.0.35",
       username: "finchat",
@@ -133,6 +141,10 @@ platform :ios do
       output_path: "dist/FinAppletWXExt-dev-#{version}.zip"
     )
 
+    # zipFileName ="FinAppletWXExt-dev-#{version}.zip"
+    # path=Dir.pwd
+    # sh("coscli cp #{path}/../dist/#{zipFileName} cos://static-1251849568/finchat/sdk/#{zipFileName} --meta=x-cos-meta-build-type:release")
+  
     scp(
       host: "192.168.0.35",
       username: "finchat",

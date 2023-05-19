@@ -10,9 +10,14 @@
 #import <FinApplet/FinApplet.h>
 #import "FATWXExtBaseApi.h"
 #import "FATDelegateClientHelper.h"
+#import "FATWXExtPrivateContant.h"
 
 @implementation FATWXExtComponent
 
++ (NSString *)SDKVersion
+{
+    return FATWXExtVersionString;
+}
 
 + (BOOL)registerComponent:(NSString *)appld universalLink:(NSString *)universalLink {
     

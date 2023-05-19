@@ -31,7 +31,6 @@
         }
     }
     
-//    pathString = [NSString stringWithFormat:@"%@", info[@"test"]];
     if ([FATWXUtils fat_isEmptyWithString:pathString]) {
         if (failure) {
             failure(@{@"errMsg":@"path not exist"});
@@ -55,8 +54,8 @@
     [FATWXApiManager sharedManager].wxResponse = ^(WXLaunchMiniProgramResp *resp) {
         NSDictionary *dic = [FATWXUtils dictionaryWithJsonString:resp.extMsg];
         
-        BOOL result = [dic[@"errMsg"] containsString:@"fail"] ? NO : YES;
-        if (result) {
+        BOOL result = [dic[@"errMsg"] containsString:@"fail"];
+        if (!result) {
             if (success) {
                 success(dic);
             }
@@ -65,10 +64,6 @@
                 failure(dic);
             }
         }
-        
-//        if (callback) {
-//            callback([dic[@"errMsg"] containsString:@"fail"] ? FATExtensionCodeFailure : FATExtensionCodeSuccess, dic);
-//        }
     };
 }
 

@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2BC2F0C3291BE3E0005AF700 /* FATClient+WechatExt.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC2F0C2291BE3E0005AF700 /* FATClient+WechatExt.h */; };
-		524CC8F967B7F8CF5311B18A /* libPods-FinAppletWXExt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7DB5C31139193276B131063 /* libPods-FinAppletWXExt.a */; };
+		4CFF0B59FA34AD0CE3ECE561 /* Pods_FinAppletWXExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB3040F13E0A77013159B6B /* Pods_FinAppletWXExt.framework */; };
+		A89389292A10979600A4D006 /* FATWXExtPrivateContant.h in Headers */ = {isa = PBXBuildFile; fileRef = A89389282A10979600A4D006 /* FATWXExtPrivateContant.h */; };
 		EE2045212A04E5BC0007C64A /* FATExt_navigateToWechatMiniProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20451F2A04E5BC0007C64A /* FATExt_navigateToWechatMiniProgram.m */; };
 		EE2045222A04E5BC0007C64A /* FATExt_navigateToWechatMiniProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = EE2045202A04E5BC0007C64A /* FATExt_navigateToWechatMiniProgram.h */; };
 		EE7A6E9328C05DCD0044ABE4 /* FATWXExtButtonOpenTypeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = EE7A6E9228C05DCD0044ABE4 /* FATWXExtButtonOpenTypeDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -24,8 +25,6 @@
 		EEA3BB4E28AE77410091D2DF /* FATWXExtComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB4C28AE77410091D2DF /* FATWXExtComponent.m */; };
 		EEA3BB5128AE7AA90091D2DF /* FATExt_login.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA3BB4F28AE7AA80091D2DF /* FATExt_login.h */; };
 		EEA3BB5228AE7AA90091D2DF /* FATExt_login.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB5028AE7AA90091D2DF /* FATExt_login.m */; };
-		EEA3BB5528AE7AC40091D2DF /* FATExt_getUserProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA3BB5328AE7AC40091D2DF /* FATExt_getUserProfile.h */; };
-		EEA3BB5628AE7AC40091D2DF /* FATExt_getUserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB5428AE7AC40091D2DF /* FATExt_getUserProfile.m */; };
 		EEA3BB5928AE7AD40091D2DF /* FATExt_requestPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA3BB5728AE7AD40091D2DF /* FATExt_requestPayment.h */; };
 		EEA3BB5A28AE7AD40091D2DF /* FATExt_requestPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA3BB5828AE7AD40091D2DF /* FATExt_requestPayment.m */; };
 		EEA3BB6E28B117730091D2DF /* FATWXApiManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA3BB6C28B117730091D2DF /* FATWXApiManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -49,7 +48,7 @@
 /* Begin PBXFileReference section */
 		2BC2F0C2291BE3E0005AF700 /* FATClient+WechatExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FATClient+WechatExt.h"; sourceTree = "<group>"; };
 		34A1FC8C0B66F40BD85005C0 /* Pods-FinAppletWXExt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinAppletWXExt.debug.xcconfig"; path = "Target Support Files/Pods-FinAppletWXExt/Pods-FinAppletWXExt.debug.xcconfig"; sourceTree = "<group>"; };
-		D7DB5C31139193276B131063 /* libPods-FinAppletWXExt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FinAppletWXExt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A89389282A10979600A4D006 /* FATWXExtPrivateContant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FATWXExtPrivateContant.h; sourceTree = "<group>"; };
 		E13C68B857096563FF053F23 /* Pods-FinAppletWXExt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinAppletWXExt.release.xcconfig"; path = "Target Support Files/Pods-FinAppletWXExt/Pods-FinAppletWXExt.release.xcconfig"; sourceTree = "<group>"; };
 		EE20451F2A04E5BC0007C64A /* FATExt_navigateToWechatMiniProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FATExt_navigateToWechatMiniProgram.m; sourceTree = "<group>"; };
 		EE2045202A04E5BC0007C64A /* FATExt_navigateToWechatMiniProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FATExt_navigateToWechatMiniProgram.h; sourceTree = "<group>"; };
@@ -68,8 +67,6 @@
 		EEA3BB4C28AE77410091D2DF /* FATWXExtComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FATWXExtComponent.m; sourceTree = "<group>"; };
 		EEA3BB4F28AE7AA80091D2DF /* FATExt_login.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FATExt_login.h; sourceTree = "<group>"; };
 		EEA3BB5028AE7AA90091D2DF /* FATExt_login.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FATExt_login.m; sourceTree = "<group>"; };
-		EEA3BB5328AE7AC40091D2DF /* FATExt_getUserProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FATExt_getUserProfile.h; sourceTree = "<group>"; };
-		EEA3BB5428AE7AC40091D2DF /* FATExt_getUserProfile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FATExt_getUserProfile.m; sourceTree = "<group>"; };
 		EEA3BB5728AE7AD40091D2DF /* FATExt_requestPayment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FATExt_requestPayment.h; sourceTree = "<group>"; };
 		EEA3BB5828AE7AD40091D2DF /* FATExt_requestPayment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FATExt_requestPayment.m; sourceTree = "<group>"; };
 		EEA3BB6C28B117730091D2DF /* FATWXApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FATWXApiManager.h; sourceTree = "<group>"; };
@@ -78,6 +75,7 @@
 		EEA3BB7128B25E680091D2DF /* FATDelegateClientHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FATDelegateClientHelper.m; sourceTree = "<group>"; };
 		EEF32ABE28B75802008DCC45 /* FATExt_testJump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FATExt_testJump.m; sourceTree = "<group>"; };
 		EEF32ABF28B75802008DCC45 /* FATExt_testJump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FATExt_testJump.h; sourceTree = "<group>"; };
+		FEB3040F13E0A77013159B6B /* Pods_FinAppletWXExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinAppletWXExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				524CC8F967B7F8CF5311B18A /* libPods-FinAppletWXExt.a in Frameworks */,
+				4CFF0B59FA34AD0CE3ECE561 /* Pods_FinAppletWXExt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +101,7 @@
 		6217728CEDDD16FF1D0342BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D7DB5C31139193276B131063 /* libPods-FinAppletWXExt.a */,
+				FEB3040F13E0A77013159B6B /* Pods_FinAppletWXExt.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,6 +161,7 @@
 				EE85854228B3B5F7007B5608 /* Info.plist */,
 				EEA3BB4B28AE77410091D2DF /* FATWXExtComponent.h */,
 				EEA3BB4C28AE77410091D2DF /* FATWXExtComponent.m */,
+				A89389282A10979600A4D006 /* FATWXExtPrivateContant.h */,
 				EE7A6E9228C05DCD0044ABE4 /* FATWXExtButtonOpenTypeDelegate.h */,
 				EEA3BB6C28B117730091D2DF /* FATWXApiManager.h */,
 				EEA3BB6D28B117730091D2DF /* FATWXApiManager.m */,
@@ -193,8 +192,6 @@
 				EEF32ABE28B75802008DCC45 /* FATExt_testJump.m */,
 				EE2045202A04E5BC0007C64A /* FATExt_navigateToWechatMiniProgram.h */,
 				EE20451F2A04E5BC0007C64A /* FATExt_navigateToWechatMiniProgram.m */,
-				EEA3BB5328AE7AC40091D2DF /* FATExt_getUserProfile.h */,
-				EEA3BB5428AE7AC40091D2DF /* FATExt_getUserProfile.m */,
 				EEA3BB5728AE7AD40091D2DF /* FATExt_requestPayment.h */,
 				EEA3BB5828AE7AD40091D2DF /* FATExt_requestPayment.m */,
 			);
@@ -209,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEA3BB7228B25E680091D2DF /* FATDelegateClientHelper.h in Headers */,
+				A89389292A10979600A4D006 /* FATWXExtPrivateContant.h in Headers */,
 				2BC2F0C3291BE3E0005AF700 /* FATClient+WechatExt.h in Headers */,
 				EEA3BB5128AE7AA90091D2DF /* FATExt_login.h in Headers */,
 				EE2045222A04E5BC0007C64A /* FATExt_navigateToWechatMiniProgram.h in Headers */,
@@ -220,7 +218,6 @@
 				EE7A6E9328C05DCD0044ABE4 /* FATWXExtButtonOpenTypeDelegate.h in Headers */,
 				EE90430C28B375AF00BEB853 /* FATWXUtils.h in Headers */,
 				EEA3BB6E28B117730091D2DF /* FATWXApiManager.h in Headers */,
-				EEA3BB5528AE7AC40091D2DF /* FATExt_getUserProfile.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +353,6 @@
 				EEA3BB4A28AE72810091D2DF /* FATWXExtBaseApi.m in Sources */,
 				EEA3BB5A28AE7AD40091D2DF /* FATExt_requestPayment.m in Sources */,
 				EEA3BB7328B25E680091D2DF /* FATDelegateClientHelper.m in Sources */,
-				EEA3BB5628AE7AC40091D2DF /* FATExt_getUserProfile.m in Sources */,
 				EEF32AC028B75802008DCC45 /* FATExt_testJump.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
