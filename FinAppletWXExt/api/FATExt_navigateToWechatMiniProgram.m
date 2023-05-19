@@ -35,8 +35,8 @@
     [FATWXApiManager sharedManager].wxResponse = ^(WXLaunchMiniProgramResp *resp) {
         NSDictionary *dic = [FATWXUtils dictionaryWithJsonString:resp.extMsg];
         
-        BOOL result = [dic[@"errMsg"] containsString:@"fail"] ? NO : YES;
-        if (result) {
+        BOOL result = [dic[@"errMsg"] containsString:@"fail"];
+        if (!result) {
             if (success) {
                 success(dic);
             }

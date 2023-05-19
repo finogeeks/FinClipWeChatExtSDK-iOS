@@ -18,6 +18,13 @@
                      cancel:(void (^)(NSDictionary *cancelResult))cancel {
     
     NSDictionary *info = self.appletInfo.wechatLoginInfo;
+    NSString *wechatOriginIdString = info[@"wechatOriginId"];
+    if ([FATWXUtils fat_isEmptyWithString:wechatOriginIdString]) {
+        if (failure) {
+            failure(@{@"errMsg":@"wechatOriginId not exist"});
+        }
+        return;
+    }
     NSString *pathString = info[@"paymentUrl"];
     if ([FATWXUtils fat_isEmptyWithString:pathString]) {
         if (failure) {
@@ -43,8 +50,8 @@
     [FATWXApiManager sharedManager].wxResponse = ^(WXLaunchMiniProgramResp *resp) {
         NSDictionary *dic = [FATWXUtils dictionaryWithJsonString:resp.extMsg];
         
-        BOOL result = [dic[@"errMsg"] containsString:@"fail"] ? NO : YES;
-        if (result) {
+        BOOL result = [dic[@"errMsg"] containsString:@"fail"];
+        if (!result) {
             if (success) {
                 success(dic);
             }
@@ -53,10 +60,6 @@
                 failure(dic);
             }
         }
-        
-//        if (callback) {
-//            callback([dic[@"errMsg"] containsString:@"fail"] ? FATExtensionCodeFailure : FATExtensionCodeSuccess, dic);
-//        }
     };
 }
 

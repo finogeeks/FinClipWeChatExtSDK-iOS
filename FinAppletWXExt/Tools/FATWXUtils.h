@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)fat_isEmptyWithString:(NSString *)string;
 
 + (BOOL)fat_isEmptyArrayWithArry:(NSArray *)array;
+
++ (NSDictionary *)checkDataCode:(NSDictionary *)data;
+
 @end
 
 NS_ASSUME_NONNULL_END

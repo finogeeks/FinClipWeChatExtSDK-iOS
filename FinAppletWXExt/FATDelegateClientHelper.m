@@ -35,23 +35,32 @@ static FATDelegateClientHelper *instance = nil;
         [[FATDelegateClientHelper sharedHelper].buttonOpenTypeDelegate getPhoneNumberWithAppletInfo:appletInfo bindGetPhoneNumber:bindGetPhoneNumber];
     } else {
         NSDictionary *info = appletInfo.wechatLoginInfo;
-        NSString *pathString = info[@"phoneUrl"];
-
-        if ([FATWXUtils fat_isEmptyWithString:pathString]) {
+        NSString *wechatOriginIdString = info[@"wechatOriginId"];
+        if ([FATWXUtils fat_isEmptyWithString:wechatOriginIdString]) {
+            NSDictionary *resultData = [FATWXUtils checkDataCode:@{@"errMsg":@"wechatOriginId not exist"}];
             if (bindGetPhoneNumber) {
-                bindGetPhoneNumber(@{@"errMsg":@"path not exist"});
+                bindGetPhoneNumber(resultData);
             }
-            return NO;
+            return YES;
+        }
+        
+        NSString *pathString = info[@"phoneUrl"];
+        if ([FATWXUtils fat_isEmptyWithString:pathString]) {
+            NSDictionary *resultData = [FATWXUtils checkDataCode:@{@"errMsg":@"path not exist"}];
+            if (bindGetPhoneNumber) {
+                bindGetPhoneNumber(resultData);
+            }
+            return YES;
         }
         WXLaunchMiniProgramReq *launchMiniProgramReq = [WXLaunchMiniProgramReq object];
-        launchMiniProgramReq.userName = info[@"wechatOriginId"];  //拉起的小程序的username
+        launchMiniProgramReq.userName = info[@"wechatOriginId"];
         launchMiniProgramReq.path = pathString;
         if (appletInfo.appletVersionType == FATAppletVersionTypeRelease) {
-            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease; //正式版
+            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease;
         } else if (appletInfo.appletVersionType == FATAppletVersionTypeTrial) {
-            launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview; //体验版
+            launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview;
         } else {
-            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest; //开发版
+            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest;
         }
         [WXApi sendReq:launchMiniProgramReq completion:^(BOOL success) {
             
@@ -59,6 +68,7 @@ static FATDelegateClientHelper *instance = nil;
         
         [FATWXApiManager sharedManager].wxResponse = ^(WXLaunchMiniProgramResp *resp) {
             NSDictionary *dic = [FATWXUtils dictionaryWithJsonString:resp.extMsg];
+            dic = [FATWXUtils checkDataCode:dic];
             if (bindGetPhoneNumber) {
                 bindGetPhoneNumber(dic);
             }
@@ -92,6 +102,54 @@ static FATDelegateClientHelper *instance = nil;
 - (BOOL)forwardAppletWithInfo:(nonnull NSDictionary *)contentInfo completion:(nonnull void (^)(FATExtensionCode, NSDictionary * _Nonnull))completion {
     if ([[FATDelegateClientHelper sharedHelper].buttonOpenTypeDelegate respondsToSelector:@selector(forwardAppletWithInfo:completion:)]) {
         return [[FATDelegateClientHelper sharedHelper].buttonOpenTypeDelegate forwardAppletWithInfo:contentInfo completion:completion];
+    }
+    return NO;
+}
+
+- (BOOL)getUserProfileWithAppletInfo:(FATAppletInfo *)appletInfo bindGetUserProfile:(void (^)(NSDictionary *result))bindGetUserProfile {
+    if ([[FATDelegateClientHelper sharedHelper].buttonOpenTypeDelegate respondsToSelector:@selector(getUserProfileWithAppletInfo:bindGetUserProfile:)]) {
+        return [[FATDelegateClientHelper sharedHelper].buttonOpenTypeDelegate getUserProfileWithAppletInfo:appletInfo bindGetUserProfile:bindGetUserProfile];;
+    } else {
+        FATAppletInfo *appInfo = [[FATClient sharedClient] currentApplet];
+        NSDictionary *info = appInfo.wechatLoginInfo;
+        NSString *wechatOriginIdString = info[@"wechatOriginId"];
+        if ([FATWXUtils fat_isEmptyWithString:wechatOriginIdString]) {
+            NSDictionary *resultData = [FATWXUtils checkDataCode:@{@"errMsg":@"wechatOriginId not exist"}];
+            if (bindGetUserProfile) {
+                bindGetUserProfile(resultData);
+            }
+            return YES;
+        }
+        NSString *pathString = info[@"profileUrl"];
+        if ([FATWXUtils fat_isEmptyWithString:pathString]) {
+            NSDictionary *resultData = [FATWXUtils checkDataCode:@{@"errMsg":@"path not exist"}];
+            if (bindGetUserProfile) {
+                bindGetUserProfile(resultData);
+            }
+            return YES;
+        }
+        WXLaunchMiniProgramReq *launchMiniProgramReq = [WXLaunchMiniProgramReq object];
+        launchMiniProgramReq.userName = info[@"wechatOriginId"];  //拉起的小程序的username
+        launchMiniProgramReq.path = pathString;    //拉起小程序页面的可带参路径，不填默认拉起小程序首页，对于小游戏，可以只传入 query 部分，来实现传参效果，如：传入 "?foo=bar"。
+        if (appInfo.appletVersionType == FATAppletVersionTypeRelease) {
+            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease; //正式版
+        } else if (appInfo.appletVersionType == FATAppletVersionTypeTrial) {
+            launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview; //体验版
+        } else {
+            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest; //开发版
+        }
+        [WXApi sendReq:launchMiniProgramReq completion:^(BOOL success) {
+            
+        }];
+        
+        [FATWXApiManager sharedManager].wxResponse = ^(WXLaunchMiniProgramResp *resp) {
+            NSDictionary *dic = [FATWXUtils dictionaryWithJsonString:resp.extMsg];
+            dic = [FATWXUtils checkDataCode:dic];
+            if (bindGetUserProfile) {
+                bindGetUserProfile(dic);
+            }
+        };
+        return YES;
     }
     return NO;
 }

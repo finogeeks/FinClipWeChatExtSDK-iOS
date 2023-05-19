@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FATWXExtComponent : NSObject
 
++ (NSString *)SDKVersion;
+
 + (BOOL)registerComponent:(NSString *)appld universalLink:(NSString *)universalLink;
 
 @end
