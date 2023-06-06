@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10AF5C2930A07E19EBCB9D35 /* libPods-FinAppletWXExt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0259E1FF5753BEA4C21601 /* libPods-FinAppletWXExt.a */; };
 		2BC2F0C3291BE3E0005AF700 /* FATClient+WechatExt.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC2F0C2291BE3E0005AF700 /* FATClient+WechatExt.h */; };
 		A89389292A10979600A4D006 /* FATWXExtPrivateContant.h in Headers */ = {isa = PBXBuildFile; fileRef = A89389282A10979600A4D006 /* FATWXExtPrivateContant.h */; };
+		AE7BB67521272ED865B32F71 /* Pods_FinAppletWXExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3FF758BD2A8E79671B8CF0 /* Pods_FinAppletWXExt.framework */; };
 		EE2045212A04E5BC0007C64A /* FATExt_navigateToWechatMiniProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = EE20451F2A04E5BC0007C64A /* FATExt_navigateToWechatMiniProgram.m */; };
 		EE2045222A04E5BC0007C64A /* FATExt_navigateToWechatMiniProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = EE2045202A04E5BC0007C64A /* FATExt_navigateToWechatMiniProgram.h */; };
 		EE7A6E9328C05DCD0044ABE4 /* FATWXExtButtonOpenTypeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = EE7A6E9228C05DCD0044ABE4 /* FATWXExtButtonOpenTypeDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -48,8 +48,8 @@
 /* Begin PBXFileReference section */
 		2BC2F0C2291BE3E0005AF700 /* FATClient+WechatExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FATClient+WechatExt.h"; sourceTree = "<group>"; };
 		34A1FC8C0B66F40BD85005C0 /* Pods-FinAppletWXExt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinAppletWXExt.debug.xcconfig"; path = "Target Support Files/Pods-FinAppletWXExt/Pods-FinAppletWXExt.debug.xcconfig"; sourceTree = "<group>"; };
-		5D0259E1FF5753BEA4C21601 /* libPods-FinAppletWXExt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FinAppletWXExt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A89389282A10979600A4D006 /* FATWXExtPrivateContant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FATWXExtPrivateContant.h; sourceTree = "<group>"; };
+		DD3FF758BD2A8E79671B8CF0 /* Pods_FinAppletWXExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinAppletWXExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E13C68B857096563FF053F23 /* Pods-FinAppletWXExt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinAppletWXExt.release.xcconfig"; path = "Target Support Files/Pods-FinAppletWXExt/Pods-FinAppletWXExt.release.xcconfig"; sourceTree = "<group>"; };
 		EE20451F2A04E5BC0007C64A /* FATExt_navigateToWechatMiniProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FATExt_navigateToWechatMiniProgram.m; sourceTree = "<group>"; };
 		EE2045202A04E5BC0007C64A /* FATExt_navigateToWechatMiniProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FATExt_navigateToWechatMiniProgram.h; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10AF5C2930A07E19EBCB9D35 /* libPods-FinAppletWXExt.a in Frameworks */,
+				AE7BB67521272ED865B32F71 /* Pods_FinAppletWXExt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +101,7 @@
 		6217728CEDDD16FF1D0342BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5D0259E1FF5753BEA4C21601 /* libPods-FinAppletWXExt.a */,
+				DD3FF758BD2A8E79671B8CF0 /* Pods_FinAppletWXExt.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
