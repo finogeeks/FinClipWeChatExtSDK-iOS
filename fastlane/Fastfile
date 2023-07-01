@@ -56,15 +56,15 @@ platform :ios do
     # path=Dir.pwd
     # sh("coscli cp #{path}/../dist/#{zipFileName} cos://static-1251849568/finchat/sdk/#{zipFileName} --meta=x-cos-meta-build-type:release")
   
-    scp(
-      host: "192.168.0.35",
-      username: "finchat",
-      password: "abcd@@123",
-      upload: {
-        src: "dist/FinAppletWXExt-Min-#{version}.zip",
-        dst: "/data/ci/app/html/finchat/sdk"
-      }
-    )
+    # scp(
+    #   host: "192.168.0.35",
+    #   username: "finchat",
+    #   password: "abcd@@123",
+    #   upload: {
+    #     src: "dist/FinAppletWXExt-Min-#{version}.zip",
+    #     dst: "/data/ci/app/html/finchat/sdk"
+    #   }
+    # )
 
     xcodebuild(
       workspace: "FinAppletWXExt.xcworkspace",
@@ -88,15 +88,15 @@ platform :ios do
     # path=Dir.pwd
     # sh("coscli cp #{path}/../dist/#{zipFileName} cos://static-1251849568/finchat/sdk/#{zipFileName} --meta=x-cos-meta-build-type:release")
   
-    scp(
-      host: "192.168.0.35",
-      username: "finchat",
-      password: "abcd@@123",
-      upload: {
-        src: "dist/FinAppletWXExt-#{version}.zip",
-        dst: "/data/ci/app/html/finchat/sdk"
-      }
-    )
+    # scp(
+    #   host: "192.168.0.35",
+    #   username: "finchat",
+    #   password: "abcd@@123",
+    #   upload: {
+    #     src: "dist/FinAppletWXExt-#{version}.zip",
+    #     dst: "/data/ci/app/html/finchat/sdk"
+    #   }
+    # )
 
   end
 
@@ -145,15 +145,15 @@ platform :ios do
     # path=Dir.pwd
     # sh("coscli cp #{path}/../dist/#{zipFileName} cos://static-1251849568/finchat/sdk/#{zipFileName} --meta=x-cos-meta-build-type:release")
   
-    scp(
-      host: "192.168.0.35",
-      username: "finchat",
-      password: "abcd@@123",
-      upload: {
-        src: "dist/FinAppletWXExt-dev-#{version}.zip",
-        dst: "/data/ci/app/html/finchat/sdk"
-      }
-    )
+    # scp(
+    #   host: "192.168.0.35",
+    #   username: "finchat",
+    #   password: "abcd@@123",
+    #   upload: {
+    #     src: "dist/FinAppletWXExt-dev-#{version}.zip",
+    #     dst: "/data/ci/app/html/finchat/sdk"
+    #   }
+    # )
 
   end
 
