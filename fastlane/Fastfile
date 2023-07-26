@@ -27,8 +27,9 @@ platform :ios do
 
   lane :deploy do
     
-    version = sh("git describe --abbrev=0 --tags | tr -d '\\n' | tr -d '\\t'")
-    
+    # version = sh("git describe --abbrev=0 --tags | tr -d '\\n' | tr -d '\\t'")
+    version = ENV["version"]
+
 
     # 增加build版本号
     #increment_build_number
