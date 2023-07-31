@@ -29,6 +29,7 @@ platform :ios do
     
     # version = sh("git describe --abbrev=0 --tags | tr -d '\\n' | tr -d '\\t'")
     version = ENV["version"]
+    isUploadFramework = ENV['isUploadFramework']
 
 
     # 增加build版本号
@@ -89,15 +90,18 @@ platform :ios do
     # path=Dir.pwd
     # sh("coscli cp #{path}/../dist/#{zipFileName} cos://static-1251849568/finchat/sdk/#{zipFileName} --meta=x-cos-meta-build-type:release")
   
-    # scp(
-    #   host: "192.168.0.35",
-    #   username: "finchat",
-    #   password: "abcd@@123",
-    #   upload: {
-    #     src: "dist/FinAppletWXExt-#{version}.zip",
-    #     dst: "/data/ci/app/html/finchat/sdk"
-    #   }
-    # )
+  if isUploadFramework
+    scp(
+      host: "192.168.0.35",
+      username: "finchat",
+      password: "abcd@@123",
+      upload: {
+        src: "dist/FinAppletWXExt-#{version}.zip",
+        dst: "/data/ci/app/html/finchat/sdk"
+      }
+    )
+  end
+
 
   end
 
@@ -106,6 +110,7 @@ platform :ios do
     #version = sh("git describe --abbrev=0 --tags | tr -d '\\n' | tr -d '\\t'")
     version = ENV["version"]
     createReport = options[:createReport]
+    isUploadFramework = ENV['isUploadFramework']
 
     # 增加build版本号
     #increment_build_number
@@ -146,15 +151,18 @@ platform :ios do
     # path=Dir.pwd
     # sh("coscli cp #{path}/../dist/#{zipFileName} cos://static-1251849568/finchat/sdk/#{zipFileName} --meta=x-cos-meta-build-type:release")
   
-    # scp(
-    #   host: "192.168.0.35",
-    #   username: "finchat",
-    #   password: "abcd@@123",
-    #   upload: {
-    #     src: "dist/FinAppletWXExt-dev-#{version}.zip",
-    #     dst: "/data/ci/app/html/finchat/sdk"
-    #   }
-    # )
+  if isUploadFramework
+    scp(
+      host: "192.168.0.35",
+      username: "finchat",
+      password: "abcd@@123",
+      upload: {
+        src: "dist/FinAppletWXExt-dev-#{version}.zip",
+        dst: "/data/ci/app/html/finchat/sdk"
+      }
+    )
+  end
+
 
   end
 

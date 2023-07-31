@@ -7,13 +7,13 @@ export branch="$2"
 export createReport=false
 export isStatic="$3"
 export isdeploy="$4"
-
+export isUploadFramework="$5"
 
 echo ">>>>>>>>>>> version: ${version}"
 echo ">>>>>>>>>>> branch: ${branch}"
 echo ">>>>>>>>>>> isStatic: ${isStatic}"
-
-# # echo ">>>>>>>>>>> 是否生成静态分析报告: ${createReport}"
+echo ">>>>>>>>>>> isdeploy: ${isdeploy}"
+echo ">>>>>>>>>>> isUploadFramework: ${isUploadFramework}"
 
 cp -r Podfile.dev.tpl Podfile
 sed -i "" "s/__finapplet_version__/${version}/g" Podfile
@@ -32,8 +32,8 @@ if [[ "$isdeploy" == true ]]
 then
     echo "打deploy版本的包>>>>>>"
     fastlane deploy
-    curl -F "binfile=@dist/FinClipWeChatExtSDK-Min-${version}.zip" -F "dir=finclip/ios/all" "http://192.168.0.35:4003/upload"
-    curl -F "binfile=@dist/FinClipWeChatExtSDK-${version}.zip" -F "dir=finclip/ios/all" "http://192.168.0.35:4003/upload"
+#    curl -F "binfile=@dist/FinClipWeChatExtSDK-Min-${version}.zip" -F "dir=finclip/ios/all" "http://192.168.0.35:4003/upload"
+#    curl -F "binfile=@dist/FinClipWeChatExtSDK-${version}.zip" -F "dir=finclip/ios/all" "http://192.168.0.35:4003/upload"
     # 开始打Release版小程序SDK
     cp -r FinAppletWXExt.tpl.podspec FinAppletWXExt.podspec
     cp -r FinAppletWXExt-Min.tpl.podspec FinAppletWXExt-Min.podspec
@@ -70,7 +70,7 @@ else
     cp -r FinAppletWXExt.dev.tpl.podspec FinAppletWXExt.podspec
     
     echo "上传>>>>>>"
-    curl -F "binfile=@dist/FinClipWeChatExtSDK-dev-${version}.zip" -F "dir=finclip/ios/all" "http://192.168.0.35:4003/upload"
+#    curl -F "binfile=@dist/FinClipWeChatExtSDK-dev-${version}.zip" -F "dir=finclip/ios/all" "http://192.168.0.35:4003/upload"
 
     # 开始打Release版小程序SDK
     sed -i "" "s/_FinAppletWXExt_version_/${version}/g" FinAppletWXExt.podspec
