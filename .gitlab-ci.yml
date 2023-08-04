@@ -1,6 +1,5 @@
 stages:
   - wechatSDKJob
-  - txMapSDKBuild
 variables:
   LC_ALL: "en_US.UTF-8"
   LANG: "en_US.UTF-8"
@@ -26,11 +25,4 @@ wechatSDKJob:
       when: delayed
       start_in: '2'
     - when: on_success
-
-
-txMapSDKBuild:
-  stage: txMapSDKBuild
-  trigger:
-    project: finclipsdk/FinClipTXMapExtSDK-iOS
-    branch: $CI_COMMIT_REF_NAME
 
