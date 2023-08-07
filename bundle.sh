@@ -43,18 +43,19 @@ then
     # 内存拷贝进FinApplet.dist.podspec 便于查看打出的framework
     cp -f FinAppletWXExt.podspec FinAppletWXExt.dist.podspec
 
-    pod repo push finclip FinAppletWXExt.podspec --skip-import-validation --skip-tests --allow-warnings
+    #pod repo push finclip FinAppletWXExt.podspec --skip-import-validation --skip-tests --allow-warnings
+    cp -f FinAppletWXExt.podspec  ../ext_podspec/FinAppletWXExt.podspec
+
+    git remote add ssh-origin ssh://git@gitlab.finogeeks.club:2233/finclipsdk/finclipwechatextsdk-ios.git
 
     echo "❤️❤️❤️❤️ creat FinAppletWXExt code podspec start"
     cp -r FinAppletWXExt.code.tpl.podspec FinAppletWXExt.podspec
     sed -i "" "s/_FinAppletWXExt_version_/${version}/g" FinAppletWXExt.podspec
     git add .
     git commit -m "update ${version} code FinAppletWXExt.podspec"
-    git push origin HEAD:refs/heads/master
+    git push ssh-origin HEAD:refs/heads/master
     echo "❤️❤️❤️❤️ creat FinAppletWXExt code podspec end"
-
-    git remote add ssh-origin ssh://git@gitlab.finogeeks.club:2233/finclipsdk/finclipwechatextsdk-ios.git
-
+    
     echo "❤️❤️❤️❤️ creat tag and push"
     git tag -d ${version}
     git push ssh-origin --delete tag ${version}
@@ -79,8 +80,10 @@ else
     # 内存拷贝进FinAppletWXExt.dist.podspec 便于查看打出的framework
     cp -f FinAppletWXExt.podspec FinAppletWXExt.dist.podspec
     echo "内存拷贝进FinAppletWXExt.dist.podspec>>>>>>"
-    pod repo push finclip-dev FinAppletWXExt.podspec --skip-tests --allow-warnings --skip-import-validation
-    echo "发布成功"
+    
+    #pod repo push finclip-dev FinAppletWXExt.podspec --skip-tests --allow-warnings --skip-import-validation
+    cp -f FinAppletWXExt.podspec  ../ext_podspec/FinAppletWXExt.podspec
+
     # 生成源码依赖的podspec
     echo "❤️❤️❤️❤️ creat FinAppletWXExt code podspec"
     
