@@ -24,7 +24,7 @@ sed -i "" "s/_FinApplet_version_/${version}/g" FinAppletWXExt/FATWXExtPrivateCon
 rm -rf build dist
 
 bundle install
-pod update
+pod update   --no-repo-update
 
 echo "打包动态库>>>>>>"
 
