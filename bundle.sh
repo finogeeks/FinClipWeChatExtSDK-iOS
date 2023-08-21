@@ -7,13 +7,15 @@ export branch="$2"
 export createReport=false
 export isStatic="$3"
 export isdeploy="$4"
-export isUploadFramework="$5"
+export isUploadScp="$5"
+export isUploadToCom="$6"
 
 echo ">>>>>>>>>>> version: ${version}"
 echo ">>>>>>>>>>> branch: ${branch}"
 echo ">>>>>>>>>>> isStatic: ${isStatic}"
 echo ">>>>>>>>>>> isdeploy: ${isdeploy}"
-echo ">>>>>>>>>>> isUploadFramework: ${isUploadFramework}"
+echo ">>>>>>>>>>> isUploadScp: ${isUploadScp}"
+echo ">>>>>>>>>>> isUploadToCom: ${isUploadToCom}"
 
 cp -r Podfile.dev.tpl Podfile
 sed -i "" "s/__finapplet_version__/${version}/g" Podfile
@@ -83,7 +85,7 @@ else
     
     #pod repo push finclip-dev FinAppletWXExt.podspec --skip-tests --allow-warnings --skip-import-validation
     cp -f FinAppletWXExt.podspec  ../ext_podspec/FinAppletWXExt.podspec
-
+    
     # 生成源码依赖的podspec
     echo "❤️❤️❤️❤️ creat FinAppletWXExt code podspec"
     

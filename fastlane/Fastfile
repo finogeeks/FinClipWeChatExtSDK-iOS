@@ -29,7 +29,7 @@ platform :ios do
     
     # version = sh("git describe --abbrev=0 --tags | tr -d '\\n' | tr -d '\\t'")
     version = ENV["version"]
-    isUploadFramework = ENV['isUploadFramework']
+    isUploadScp = ENV['isUploadScp']
 
 
     # 增加build版本号
@@ -90,7 +90,7 @@ platform :ios do
     # path=Dir.pwd
     # sh("coscli cp #{path}/../dist/#{zipFileName} cos://static-1251849568/finchat/sdk/#{zipFileName} --meta=x-cos-meta-build-type:release")
   
-  if isUploadFramework
+  if isUploadScp
     scp(
       host: "192.168.0.35",
       username: "finchat",
@@ -110,7 +110,7 @@ platform :ios do
     #version = sh("git describe --abbrev=0 --tags | tr -d '\\n' | tr -d '\\t'")
     version = ENV["version"]
     createReport = options[:createReport]
-    isUploadFramework = ENV['isUploadFramework']
+    isUploadScp = ENV['isUploadScp']
 
     # 增加build版本号
     #increment_build_number
@@ -151,7 +151,7 @@ platform :ios do
     # path=Dir.pwd
     # sh("coscli cp #{path}/../dist/#{zipFileName} cos://static-1251849568/finchat/sdk/#{zipFileName} --meta=x-cos-meta-build-type:release")
   
-  if isUploadFramework
+  if isUploadScp
     scp(
       host: "192.168.0.35",
       username: "finchat",
