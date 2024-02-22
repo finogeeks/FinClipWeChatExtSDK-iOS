@@ -144,7 +144,7 @@ platform :ios do
 
     zip(
       path: "dist/Release/FinAppletWXExt.framework",
-      output_path: "dist/FinAppletWXExt-dev-#{version}.zip"
+      output_path: "dist/FinAppletWXExt-#{version}.zip"
     )
 
     # zipFileName ="FinAppletWXExt-dev-#{version}.zip"
@@ -157,7 +157,7 @@ platform :ios do
       username: "finchat",
       password: "abcd@@123",
       upload: {
-        src: "dist/FinAppletWXExt-dev-#{version}.zip",
+        src: "dist/FinAppletWXExt-#{version}.zip",
         dst: "/data/ci/app/html/finchat/sdk"
       }
     )

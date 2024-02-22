@@ -21,7 +21,6 @@ wechatSDKJob:
     - if: '$BUILD_OTHER_PROJECTS != "true"'
       when: never
     - if: '$BUILD_OTHER_PROJECTS == "true"'
-      when: delayed
-      start_in: '2'
     - when: on_success
+  allow_failure: true
 
