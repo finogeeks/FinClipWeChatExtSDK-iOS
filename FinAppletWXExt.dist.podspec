@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "FinAppletWXExt"
-  s.version      = "2.44.10-dev20240621v04"
+  s.version      = "2.44.10-dev20240624v01"
   s.summary      = "FinApplet contact sdk."
   s.description  = <<-DESC
                     this is FinApplet contact sdk
@@ -15,11 +15,11 @@ Pod::Spec.new do |s|
   s.author             = { "finclip" => "contact@finogeeks.com" }
   s.platform     = :ios, "9.0"
   s.ios.deployment_target = "9.0"
-  s.source       = { :http => "https://app.finogeeks.com/finchat/sdk/FinAppletWXExt-2.44.10-dev20240621v04.zip"  }
+  s.source       = { :http => "https://app.finogeeks.com/finchat/sdk/FinAppletWXExt-2.44.10-dev20240624v01.zip"  }
   s.vendored_frameworks = "FinAppletWXExt.framework" 
   s.requires_arc = true
   s.libraries = 'c++'
-  s.dependency 'FinApplet','2.44.10-dev20240621v04'
+  s.dependency 'FinApplet','2.44.10-dev20240624v01'
   s.dependency 'WechatOpenSDK'
   s.pod_target_xcconfig = {
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
