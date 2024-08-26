@@ -1,0 +1,26 @@
+stages:
+  - wechatSDKJob
+variables:
+  LC_ALL: "en_US.UTF-8"
+  LANG: "en_US.UTF-8"
+  GITLAB_VERSION: $GITLAB_VERSION
+  BUILD_OTHER_PROJECTS: $BUILD_OTHER_PROJECTS
+  GITLAB_BUILD_DEPLOY: $GITLAB_BUILD_DEPLOY
+  GITLAB_BUILD: $GITLAB_BUILD
+  GITLAB_BUILD_ISSTATIC: $GITLAB_BUILD_ISSTATIC
+  GITLAB_SCP_UPLOAD: $GITLAB_SCP_UPLOAD
+  GITLAB_UPLOAD_COM: $GITLAB_UPLOAD_COM
+
+wechatSDKJob:
+  stage: wechatSDKJob
+  script:
+    - sh bundle.sh $GITLAB_VERSION $CI_COMMIT_REF_NAME $GITLAB_BUILD_ISSTATIC $GITLAB_BUILD_DEPLOY $GITLAB_SCP_UPLOAD $GITLAB_UPLOAD_COM
+  tags:
+    - mac-studio
+  rules:
+    - if: '$BUILD_OTHER_PROJECTS != "true"'
+      when: never
+    - if: '$BUILD_OTHER_PROJECTS == "true"'
+    - when: on_success
+  allow_failure: true
+
