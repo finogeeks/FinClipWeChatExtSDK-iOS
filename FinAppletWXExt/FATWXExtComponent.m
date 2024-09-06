@@ -6,11 +6,12 @@
 //
 
 #import "FATWXExtComponent.h"
-#import "WXApi.h"
-#import <FinApplet/FinApplet.h>
 #import "FATWXExtBaseApi.h"
 #import "FATDelegateClientHelper.h"
 #import "FATWXExtPrivateContant.h"
+
+#import <FinApplet/FinApplet.h>
+#import <WechatOpenSDK/WXApi.h>
 
 @implementation FATWXExtComponent
 
