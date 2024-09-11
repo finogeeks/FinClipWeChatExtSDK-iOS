@@ -57,13 +57,26 @@ static FATDelegateClientHelper *instance = nil;
         WXLaunchMiniProgramReq *launchMiniProgramReq = [WXLaunchMiniProgramReq object];
         launchMiniProgramReq.userName = info[@"wechatOriginId"];
         launchMiniProgramReq.path = pathString;
-        if (appletInfo.appletVersionType == FATAppletVersionTypeRelease) {
-            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease;
-        } else if (appletInfo.appletVersionType == FATAppletVersionTypeTrial) {
-            launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview;
+        NSString *envVersion = info[@"envVersion"];
+        if ([envVersion fat_isNotEmpty]) {
+            if ([envVersion isEqualToString:@"develop"]) {
+                launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest;
+            } else if ([envVersion isEqualToString:@"trial"]) {
+                launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview;
+            } else {
+                launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease;
+            }
         } else {
-            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest;
+            if (appletInfo.appletVersionType == FATAppletVersionTypeRelease) {
+                launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease;
+            } else if (appletInfo.appletVersionType == FATAppletVersionTypeTrial) {
+                launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview;
+            } else {
+                launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest;
+            }
         }
+        
+       
         [WXApi sendReq:launchMiniProgramReq completion:^(BOOL success) {
             
         }];
@@ -133,13 +146,25 @@ static FATDelegateClientHelper *instance = nil;
         WXLaunchMiniProgramReq *launchMiniProgramReq = [WXLaunchMiniProgramReq object];
         launchMiniProgramReq.userName = info[@"wechatOriginId"];  //拉起的小程序的username
         launchMiniProgramReq.path = pathString;    //拉起小程序页面的可带参路径，不填默认拉起小程序首页，对于小游戏，可以只传入 query 部分，来实现传参效果，如：传入 "?foo=bar"。
-        if (appInfo.appletVersionType == FATAppletVersionTypeRelease) {
-            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease; //正式版
-        } else if (appInfo.appletVersionType == FATAppletVersionTypeTrial) {
-            launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview; //体验版
+        NSString *envVersion = info[@"envVersion"];
+        if ([envVersion fat_isNotEmpty]) {
+            if ([envVersion isEqualToString:@"develop"]) {
+                launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest;
+            } else if ([envVersion isEqualToString:@"trial"]) {
+                launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview;
+            } else {
+                launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease;
+            }
         } else {
-            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest; //开发版
+            if (appInfo.appletVersionType == FATAppletVersionTypeRelease) {
+                launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease; //正式版
+            } else if (appInfo.appletVersionType == FATAppletVersionTypeTrial) {
+                launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview; //体验版
+            } else {
+                launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest; //开发版
+            }
         }
+       
         [WXApi sendReq:launchMiniProgramReq completion:^(BOOL success) {
             
         }];

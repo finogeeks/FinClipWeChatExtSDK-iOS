@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FATExt_login : FATWXExtBaseApi
-
+@property (nonatomic, copy) NSString *envVersion;
 @end
 
 NS_ASSUME_NONNULL_END
