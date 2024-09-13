@@ -8,6 +8,6 @@
 #ifndef FATWXExtPrivateContant_h
 #define FATWXExtPrivateContant_h
 
-static NSString *FATWXExtVersionString = @"2.45.10-dev20240912v07";
+static NSString *FATWXExtVersionString = @"2.45.10-dev20240913v01";
 
 #endif /* FATWXExtPrivateContant_h */
