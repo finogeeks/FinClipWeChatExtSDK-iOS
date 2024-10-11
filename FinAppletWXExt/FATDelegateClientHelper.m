@@ -57,25 +57,13 @@ static FATDelegateClientHelper *instance = nil;
         WXLaunchMiniProgramReq *launchMiniProgramReq = [WXLaunchMiniProgramReq object];
         launchMiniProgramReq.userName = info[@"wechatOriginId"];
         launchMiniProgramReq.path = pathString;
-        NSString *envVersion = info[@"envVersion"];
-        if ([envVersion fat_isNotEmpty]) {
-            if ([envVersion isEqualToString:@"develop"]) {
-                launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest;
-            } else if ([envVersion isEqualToString:@"trial"]) {
-                launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview;
-            } else {
-                launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease;
-            }
+        if (appletInfo.appletVersionType == FATAppletVersionTypeRelease) {
+            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease;
+        } else if (appletInfo.appletVersionType == FATAppletVersionTypeTrial) {
+            launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview;
         } else {
-            if (appletInfo.appletVersionType == FATAppletVersionTypeRelease) {
-                launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease;
-            } else if (appletInfo.appletVersionType == FATAppletVersionTypeTrial) {
-                launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview;
-            } else {
-                launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest;
-            }
+            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest;
         }
-        
        
         [WXApi sendReq:launchMiniProgramReq completion:^(BOOL success) {
             
