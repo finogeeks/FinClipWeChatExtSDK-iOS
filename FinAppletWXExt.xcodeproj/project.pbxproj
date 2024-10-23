@@ -236,6 +236,7 @@
 				EEA3BB2528ACDA300091D2DF /* Sources */,
 				EEA3BB2628ACDA300091D2DF /* Frameworks */,
 				EEA3BB2728ACDA300091D2DF /* Resources */,
+				039A105E6D280D34EEF22EDF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -318,6 +319,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		039A105E6D280D34EEF22EDF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FinAppletWXExt/Pods-FinAppletWXExt-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FinAppletWXExt/Pods-FinAppletWXExt-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FinAppletWXExt/Pods-FinAppletWXExt-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		231544A9ADF36C38097CE170 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
