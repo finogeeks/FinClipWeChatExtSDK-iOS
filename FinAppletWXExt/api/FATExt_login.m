@@ -6,10 +6,11 @@
 //
 
 #import "FATExt_login.h"
-#import "WXApi.h"
-#import "WXApiObject.h"
 #import "FATWXApiManager.h"
 #import "FATWXUtils.h"
+
+#import <WechatOpenSDK/WXApi.h>
+#import <WechatOpenSDK/WXApiObject.h>
 
 @implementation FATExt_login
 
@@ -35,13 +36,24 @@
     WXLaunchMiniProgramReq *launchMiniProgramReq = [WXLaunchMiniProgramReq object];
     launchMiniProgramReq.userName = info[@"wechatOriginId"];
     launchMiniProgramReq.path = pathString;
-    if (self.appletInfo.appletVersionType == FATAppletVersionTypeRelease) {
-        launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease; //正式版
-    } else if (self.appletInfo.appletVersionType == FATAppletVersionTypeTrial) {
-        launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview; //体验版
+    if ([self.envVersion fat_isNotEmpty]) {
+        if ([self.envVersion isEqualToString:@"develop"]) {
+            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest;
+        } else if ([self.envVersion isEqualToString:@"trial"]) {
+            launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview;
+        } else {
+            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease;
+        }
     } else {
-        launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest; //开发版
+        if (self.appletInfo.appletVersionType == FATAppletVersionTypeRelease) {
+            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeRelease; //正式版
+        } else if (self.appletInfo.appletVersionType == FATAppletVersionTypeTrial) {
+            launchMiniProgramReq.miniProgramType = WXMiniProgramTypePreview; //体验版
+        } else {
+            launchMiniProgramReq.miniProgramType = WXMiniProgramTypeTest; //开发版
+        }
     }
+    
     [WXApi sendReq:launchMiniProgramReq completion:^(BOOL success) {
         
     }];
