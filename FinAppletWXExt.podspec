@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "FinAppletWXExt"
-  s.version      = "2.46.12-alpha20250103v01"
+  s.version      = "2.46.12-dev20250103v02"
   s.summary      = "FinApplet contact sdk."
   s.description  = <<-DESC
                     this is FinApplet contact sdk
