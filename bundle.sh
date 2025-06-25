@@ -9,6 +9,7 @@ export isStatic="$3"
 export isdeploy="$4"
 export isUploadScp="$5"
 export isUploadToCom="$6"
+export SSHPASS="abcd@@123"
 
 echo ">>>>>>>>>>> version: ${version}"
 echo ">>>>>>>>>>> branch: ${branch}"
