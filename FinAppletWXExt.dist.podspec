@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name         = "FinAppletWXExt"
   s.version      = "2.48.11"
-  s.summary      = "FinApplet contact sdk."
+  s.summary      = "FinApplet FinAppletWXExt sdk."
   s.description  = <<-DESC
-                    this is FinApplet contact sdk
+                    this is FinApplet FinAppletWXExt sdk
                    DESC
   s.homepage     = "https://www.finclip.com"
   s.license      = {
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
       Copyright 2017 finogeeks.com. All rights reserved.
       LICENSE
   }
-  s.author             = { "finclip" => "contact@finogeeks.com" }
+  s.author       = { "developer" => "developer@finogeeks.com" }
   s.platform     = :ios, "9.0"
   s.ios.deployment_target = "9.0"
   s.source       = { :http => "https://app.finogeeks.com/finchat/sdk/FinAppletWXExt-2.48.11.zip"  }
