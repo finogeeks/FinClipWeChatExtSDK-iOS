@@ -6,10 +6,11 @@
 //
 
 #import "FATExt_navigateToWechatMiniProgram.h"
-#import "WXApi.h"
-#import "WXApiObject.h"
 #import "FATWXApiManager.h"
 #import "FATWXUtils.h"
+
+#import <WechatOpenSDK/WXApi.h>
+#import <WechatOpenSDK/WXApiObject.h>
 
 @implementation FATExt_navigateToWechatMiniProgram
 
