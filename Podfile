@@ -33,7 +33,7 @@ inhibit_all_warnings!
 
 target "FinAppletWXExt" do
     project 'FinAppletWXExt.xcodeproj'
-    pod 'FinApplet','2.48.11-dev20250721v02'
+    pod 'FinApplet','2.48.12-dev20250804v01'
     pod 'WechatOpenSDK'
 end
 
