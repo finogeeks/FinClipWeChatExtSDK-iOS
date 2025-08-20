@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.libraries = 'c++'
   s.dependency 'FinApplet','2.49.3'
-  s.dependency 'WechatOpenSDK'
+  s.dependency 'WechatOpenSDK-XCFramework'
   s.pod_target_xcconfig = {
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
   }

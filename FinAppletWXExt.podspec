@@ -20,9 +20,5 @@ Pod::Spec.new do |s|
   s.resources = ['FinAppletWXExt/Resource/*']
   s.static_framework = true
   s.dependency 'FinApplet'
-  s.dependency 'WechatOpenSDK'
-  s.pod_target_xcconfig = {
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
-  }
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.dependency 'WechatOpenSDK-XCFramework'
 end
