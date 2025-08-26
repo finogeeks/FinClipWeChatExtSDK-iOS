@@ -9,8 +9,8 @@
 #import "FATWXApiManager.h"
 #import "FATWXUtils.h"
 
-#import <WXApi.h>
-#import <WXApiObject.h>
+#import <WechatOpenSDK/WXApi.h>
+#import <WechatOpenSDK/WXApiObject.h>
 
 static FATDelegateClientHelper *instance = nil;
 

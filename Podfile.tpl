@@ -1,4 +1,4 @@
-platform :ios, "9.0"
+platform :ios, "12.0"
 source 'ssh://gitlab.finogeeks.club/finclip-ios/DevPods'
 source 'ssh://gitlab.finogeeks.club/finclip-ios/FinPods'
 source 'https://cdn.cocoapods.org/'
