@@ -56,7 +56,7 @@ then
     sed -i "" "s/_FinAppletWXExt_version_/${version}/g" FinAppletWXExt.podspec
     git add .
     git commit -m "update ${version} code FinAppletWXExt.podspec"
-    git push ssh-origin HEAD:refs/heads/master
+    git push ssh-origin HEAD:refs/heads/${commitbranch}
     echo "❤️❤️❤️❤️ creat FinAppletWXExt code podspec end"
     
     echo "❤️❤️❤️❤️ creat tag and push"
