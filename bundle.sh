@@ -31,6 +31,10 @@ pod update   --no-repo-update
 
 echo "打包动态库>>>>>>"
 
+commitbranch=`echo "${branch}" | sed "s/origin\///g"`
+
+echo $commitbranch
+
 if [[ "$isdeploy" == true ]]
 then
     echo "打deploy版本的包>>>>>>"
@@ -92,9 +96,6 @@ else
     
     cp -r FinAppletWXExt.code.tpl.podspec FinAppletWXExt.podspec
     sed -i "" "s/_FinAppletWXExt_version_/${version}/g" FinAppletWXExt.podspec
-    commitbranch=`echo "${branch}" | sed "s/origin\///g"`
-    
-    echo $commitbranch
 
     git remote add ssh-origin ssh://git@gitlab.finogeeks.club:2233/finclipsdk/finclipwechatextsdk-ios.git
     echo "远端仓库地址更新。"
