@@ -72,18 +72,17 @@ platform :ios do
     xcodebuild(
       workspace: "FinAppletWXExt.xcworkspace",
       scheme: "FinAppletWXExt",
-      xcargs: "-sdk iphonesimulator",
+      xcargs: "-sdk iphonesimulator -arch arm64 -arch x86_64",
       configuration: "Release",
-      arch: "x86_64",
       clean: true,
       derivedDataPath: "./build",
       build: true
     )
 
-    sh("lipo -create ../build/Build/Products/Release-iphonesimulator/FinAppletWXExt.framework/FinAppletWXExt ../dist/Release/FinAppletWXExt.framework/FinAppletWXExt -output ../dist/Release/FinAppletWXExt.framework/FinAppletWXExt")
+    sh("xcodebuild -create-xcframework -framework ../dist/Release/FinAppletWXExt.framework -framework ../build/Build/Products/Release-iphonesimulator/FinAppletWXExt.framework -output ../dist/Release/FinAppletWXExt.xcframework")
 
     zip(
-      path: "dist/Release/FinAppletWXExt.framework",
+      path: "dist/Release/FinAppletWXExt.xcframework",
       output_path: "dist/FinAppletWXExt-#{version}.zip"
     )
 
@@ -134,18 +133,17 @@ platform :ios do
     xcodebuild(
       workspace: "FinAppletWXExt.xcworkspace",
       scheme: "FinAppletWXExt",
-      xcargs: "-sdk iphonesimulator",
+      xcargs: "-sdk iphonesimulator -arch arm64 -arch x86_64",
       configuration: "Release",
-      arch: "x86_64",
       clean: true,
       derivedDataPath: "./build",
       build: true
     )
 
-    sh("lipo -create ../build/Build/Products/Release-iphonesimulator/FinAppletWXExt.framework/FinAppletWXExt ../dist/Release/FinAppletWXExt.framework/FinAppletWXExt -output ../dist/Release/FinAppletWXExt.framework/FinAppletWXExt")
+    sh("xcodebuild -create-xcframework -framework ../dist/Release/FinAppletWXExt.framework -framework ../build/Build/Products/Release-iphonesimulator/FinAppletWXExt.framework -output ../dist/Release/FinAppletWXExt.xcframework")
 
     zip(
-      path: "dist/Release/FinAppletWXExt.framework",
+      path: "dist/Release/FinAppletWXExt.xcframework",
       output_path: "dist/FinAppletWXExt-#{version}.zip"
     )
 
