@@ -14,6 +14,42 @@
 # update_fastlane
 
 default_platform(:ios)
+
+def handleSPM(zip_path, version)
+  checksum = sh("swift package compute-checksum #{zip_path}").strip
+  
+  # 定义基础路径
+  base_path = "../../ext_spm/FinAppletWXExt"
+  
+  # 确保目标目录存在
+  sh("mkdir -p #{base_path}")
+  
+  # 读取模板文件
+  template_content = File.read("../Package.tpl.swift")
+  
+  # 替换占位符
+  package_content = template_content
+    .gsub("___CHECKSUM_PLACEHOLDER___", checksum)
+    .gsub("___VERSION_PLACEHOLDER___", version)
+  
+  # 写入到目标文件
+  File.write("#{base_path}/Package.swift", package_content)
+  
+  puts "SPM Package.swift generated with checksum: #{checksum}"
+  
+  # 生成 spm.json 文件
+  spm_json_content = <<~JSON
+    {
+      "version": "#{version}",
+      "url": "ssh://gitlab.finogeeks.club/finclip-ios/spm/FinAppletWXExt.git",
+      "publicUrl": "https://git.finogeeks.com/spm/FinAppletWXExt"
+    }
+  JSON
+  
+  File.write("#{base_path}/spm.json", spm_json_content)
+  puts "SPM spm.json generated with version: #{version}"
+end
+
 platform :ios do
   desc "Description of what the lane does"
   before_all do |lane, options|
@@ -101,6 +137,7 @@ platform :ios do
     #   }
     # )
     sh("sshpass -e scp ../dist/FinAppletWXExt-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
+    handleSPM("../dist/FinAppletWXExt-#{version}.zip", version)
   end
 
 
@@ -162,6 +199,7 @@ platform :ios do
     #   }
     # )
     sh("sshpass -e scp ../dist/FinAppletWXExt-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
+    handleSPM("../dist/FinAppletWXExt-#{version}.zip", version)
   end
 
 
