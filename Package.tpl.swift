@@ -14,8 +14,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "FinAppletWXExt",
-            url: "https://app.finogeeks.com/finchat/sdk/FinAppletWXExt_---VERSION_PLACEHOLDEER---.xcframework.zip",
-            checksum: "---CHECKSUM_PLACEHOLDER---"
+            url: "https://app.finogeeks.com/finchat/sdk/FinAppletWXExt-___VERSION_PLACEHOLDER___.zip",
+            checksum: "___CHECKSUM_PLACEHOLDER___"
         ),
     ]
 )
