@@ -42,7 +42,7 @@ def handleSPM(zip_path, version)
     {
       "version": "#{version}",
       "url": "ssh://gitlab.finogeeks.club/finclip-ios/spm/FinAppletWXExt.git",
-      "publicUrl": "https://mac-studio@git.finogeeks.com/dev-spm/FinAppletWXExt.git"
+      "publicUrl": "https://mac-studio@git.finogeeks.com/spm/FinAppletWXExt.git"
     }
   JSON
   
