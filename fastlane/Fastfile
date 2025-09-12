@@ -103,7 +103,7 @@ platform :ios do
     #     dst: "/data/ci/app/html/finchat/sdk"
     #   }
     # )
-    sh("sshpass -e scp ../dist/FinAppletWXExt-Min-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
+    sh("sshpass -p 'abcd@@123' scp ../dist/FinAppletWXExt-Min-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
 
     xcodebuild(
       workspace: "FinAppletWXExt.xcworkspace",
@@ -136,7 +136,7 @@ platform :ios do
     #     dst: "/data/ci/app/html/finchat/sdk"
     #   }
     # )
-    sh("sshpass -e scp ../dist/FinAppletWXExt-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
+    sh("sshpass -p 'abcd@@123' scp ../dist/FinAppletWXExt-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
     handleSPM("../dist/FinAppletWXExt-#{version}.zip", version)
   end
 
@@ -198,7 +198,7 @@ platform :ios do
     #     dst: "/data/ci/app/html/finchat/sdk"
     #   }
     # )
-    sh("sshpass -e scp ../dist/FinAppletWXExt-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
+    sh("sshpass -p 'abcd@@123' scp ../dist/FinAppletWXExt-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
     handleSPM("../dist/FinAppletWXExt-#{version}.zip", version)
   end
 
