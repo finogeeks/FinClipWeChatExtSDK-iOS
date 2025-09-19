@@ -46,6 +46,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *command;
 
 /**
+  是否是H5页面jssdk事件
+ */
+@property (nonatomic, assign) BOOL isH5Event;
+
+/**
  原始参数
  */
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> *param;
@@ -81,6 +86,11 @@ NS_ASSUME_NONNULL_BEGIN
  api名称
  */
 @property (nonatomic, readonly, copy) NSString *command;
+
+/**
+  是否是H5页面jssdk事件
+ */
+@property (nonatomic, assign) BOOL isH5Event;
 
 @property (nonatomic, weak) id<FATApiHanderContextDelegate> context;
 

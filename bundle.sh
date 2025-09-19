@@ -9,6 +9,7 @@ export isStatic="$3"
 export isdeploy="$4"
 export isUploadScp="$5"
 export isUploadToCom="$6"
+# export SSHPASS="abcd@@123"
 
 echo ">>>>>>>>>>> version: ${version}"
 echo ">>>>>>>>>>> branch: ${branch}"
@@ -29,6 +30,10 @@ bundle install
 pod update   --no-repo-update
 
 echo "打包动态库>>>>>>"
+
+commitbranch=`echo "${branch}" | sed "s/origin\///g"`
+
+echo $commitbranch
 
 if [[ "$isdeploy" == true ]]
 then
@@ -55,7 +60,7 @@ then
     sed -i "" "s/_FinAppletWXExt_version_/${version}/g" FinAppletWXExt.podspec
     git add .
     git commit -m "update ${version} code FinAppletWXExt.podspec"
-    git push ssh-origin HEAD:refs/heads/master
+    git push ssh-origin HEAD:refs/heads/${commitbranch}
     echo "❤️❤️❤️❤️ creat FinAppletWXExt code podspec end"
     
     echo "❤️❤️❤️❤️ creat tag and push"
@@ -91,9 +96,6 @@ else
     
     cp -r FinAppletWXExt.code.tpl.podspec FinAppletWXExt.podspec
     sed -i "" "s/_FinAppletWXExt_version_/${version}/g" FinAppletWXExt.podspec
-    commitbranch=`echo "${branch}" | sed "s/origin\///g"`
-    
-    echo $commitbranch
 
     git remote add ssh-origin ssh://git@gitlab.finogeeks.club:2233/finclipsdk/finclipwechatextsdk-ios.git
     echo "远端仓库地址更新。"
