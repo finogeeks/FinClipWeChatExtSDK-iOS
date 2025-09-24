@@ -91,15 +91,16 @@ platform :ios do
     # sh("coscli cp #{path}/../dist/#{zipFileName} cos://static-1251849568/finchat/sdk/#{zipFileName} --meta=x-cos-meta-build-type:release")
   
   if isUploadScp
-    scp(
-      host: "192.168.0.35",
-      username: "finchat",
-      password: "abcd@@123",
-      upload: {
-        src: "dist/FinAppletWXExt-#{version}.zip",
-        dst: "/data/ci/app/html/finchat/sdk"
-      }
-    )
+    # scp(
+    #   host: "192.168.0.35",
+    #   username: "finchat",
+    #   password: "abcd@@123",
+    #   upload: {
+    #     src: "dist/FinAppletWXExt-#{version}.zip",
+    #     dst: "/data/ci/app/html/finchat/sdk"
+    #   }
+    # )
+    sh("sshpass -p 'abcd@@123' scp ../dist/FinAppletWXExt-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
   end
 
 
@@ -152,15 +153,16 @@ platform :ios do
     # sh("coscli cp #{path}/../dist/#{zipFileName} cos://static-1251849568/finchat/sdk/#{zipFileName} --meta=x-cos-meta-build-type:release")
   
   if isUploadScp
-    scp(
-      host: "192.168.0.35",
-      username: "finchat",
-      password: "abcd@@123",
-      upload: {
-        src: "dist/FinAppletWXExt-#{version}.zip",
-        dst: "/data/ci/app/html/finchat/sdk"
-      }
-    )
+    # scp(
+    #   host: "192.168.0.35",
+    #   username: "finchat",
+    #   password: "abcd@@123",
+    #   upload: {
+    #     src: "dist/FinAppletWXExt-#{version}.zip",
+    #     dst: "/data/ci/app/html/finchat/sdk"
+    #   }
+    # )
+    sh("sshpass -p 'abcd@@123' scp ../dist/FinAppletWXExt-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
   end
 
 
