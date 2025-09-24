@@ -11,7 +11,7 @@
 #import "FATWXExtPrivateContant.h"
 
 #import <FinApplet/FinApplet.h>
-#import <WechatOpenSDK/WXApi.h>
+#import <WXApi.h>
 
 @implementation FATWXExtComponent
 

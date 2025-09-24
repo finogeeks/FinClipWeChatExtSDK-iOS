@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <WechatOpenSDK/WXApi.h>
+#import <WXApi.h>
 
 typedef void (^FATWXResponse)(WXLaunchMiniProgramResp *resp);
 
