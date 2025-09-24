@@ -13,12 +13,12 @@ Pod::Spec.new do |s|
       LICENSE
   }
   s.author             = { "finclip" => "contact@finogeeks.com" }
-  s.platform     = :ios, "12.0"
-  s.ios.deployment_target = "12.0"
+  s.platform     = :ios, '9.0'
+  s.ios.deployment_target = '9.0'
   s.source       = { :http => "https://app.finogeeks.com/finchat/sdk/FinAppletWXExt-_FinAppletWXExt_version_.zip"  }
   s.vendored_frameworks = "FinAppletWXExt.xcframework" 
   s.requires_arc = true
   s.libraries = 'c++'
   s.dependency 'FinApplet','_FinAppletWXExt_version_'
-  s.dependency 'WechatOpenSDK-XCFramework', '~> 2.0.5'
+  s.dependency 'WechatOpenSDK-XCFramework', '2.0.4'
 end
