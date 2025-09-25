@@ -21,8 +21,13 @@ Pod::Spec.new do |s|
   s.libraries = 'c++'
   s.dependency 'FinApplet','_FinAppletWXExt_version_'
   s.dependency 'WechatOpenSDK-XCFramework', '2.0.4'
+
   s.pod_target_xcconfig = {
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
   }
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.user_target_xcconfig = {
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+  }
 end
