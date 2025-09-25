@@ -1,4 +1,4 @@
-platform :ios, "12.0"
+platform :ios, "9.0"
 source 'ssh://gitlab.finogeeks.club/finclip-ios/DevPods'
 source 'ssh://gitlab.finogeeks.club/finclip-ios/FinPods'
 source 'https://cdn.cocoapods.org/'
@@ -33,7 +33,7 @@ inhibit_all_warnings!
 
 target "FinAppletWXExt" do
     project 'FinAppletWXExt.xcodeproj'
-    pod 'FinApplet','2.49.10-dev20250924v04'
-    pod 'WechatOpenSDK-XCFramework', '~> 2.0.5'
+    pod 'FinApplet','2.49.10-dev20250918v01'
+    pod 'WechatOpenSDK-XCFramework', '2.0.4'
 end
 

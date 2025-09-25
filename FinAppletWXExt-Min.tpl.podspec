@@ -13,16 +13,21 @@ Pod::Spec.new do |s|
       LICENSE
   }
   s.author       = { "developer" => "developer@finogeeks.com" }
-  s.platform     = :ios, "12.0"
-  s.ios.deployment_target = "12.0"
+  s.platform     = :ios, '9.0'
+  s.ios.deployment_target = '9.0'
   s.source       = { :http => "https://app.finogeeks.com/finchat/sdk/FinAppletWXExt-Min-_FinAppletWXExt_version_.zip"  }
   s.vendored_frameworks = "FinAppletWXExt.framework" 
   s.requires_arc = true
   s.libraries = 'c++'
   s.dependency 'FinApplet','_FinAppletWXExt_version_'
-  s.dependency 'WechatOpenSDK-XCFramework', '~> 2.0.5'
+  s.dependency 'WechatOpenSDK-XCFramework', '2.0.4'
+
   s.pod_target_xcconfig = {
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
   }
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.user_target_xcconfig = {
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+  }
 end
