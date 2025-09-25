@@ -15,6 +15,9 @@
 
 default_platform(:ios)
 
+# SCP上传重试脚本路径
+SCP_RETRY_SCRIPT = "../../FinClipSDK-iOS/scp_with_retry.sh"
+
 def handleSPM(zip_path, version)
   checksum = sh("swift package compute-checksum #{zip_path}").strip
   
@@ -103,7 +106,10 @@ platform :ios do
     #     dst: "/data/ci/app/html/finchat/sdk"
     #   }
     # )
-    sh("sshpass -p 'abcd@@123' scp ../dist/FinAppletWXExt-Min-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
+    # 原命令保留注释
+    # sh("sshpass -p 'abcd@@123' scp ../dist/FinAppletWXExt-Min-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
+    # 使用重试脚本上传
+    sh("#{SCP_RETRY_SCRIPT} ../dist/FinAppletWXExt-Min-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
 
     xcodebuild(
       workspace: "FinAppletWXExt.xcworkspace",
@@ -136,7 +142,10 @@ platform :ios do
     #     dst: "/data/ci/app/html/finchat/sdk"
     #   }
     # )
-    sh("sshpass -p 'abcd@@123' scp ../dist/FinAppletWXExt-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
+    # 原命令保留注释
+    # sh("sshpass -p 'abcd@@123' scp ../dist/FinAppletWXExt-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
+    # 使用重试脚本上传
+    sh("#{SCP_RETRY_SCRIPT} ../dist/FinAppletWXExt-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
     handleSPM("../dist/FinAppletWXExt-#{version}.zip", version)
   end
 
@@ -198,7 +207,10 @@ platform :ios do
     #     dst: "/data/ci/app/html/finchat/sdk"
     #   }
     # )
-    sh("sshpass -p 'abcd@@123' scp ../dist/FinAppletWXExt-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
+    # 原命令保留注释
+    # sh("sshpass -p 'abcd@@123' scp ../dist/FinAppletWXExt-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
+    # 使用重试脚本上传
+    sh("#{SCP_RETRY_SCRIPT} ../dist/FinAppletWXExt-#{version}.zip finchat@192.168.0.35:/data/ci/app/html/finchat/sdk")
     handleSPM("../dist/FinAppletWXExt-#{version}.zip", version)
   end
 
