@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "FinAppletWXExt"
-  s.version      = "2.49.10-dev20250926v07"
+  s.version      = "2.49.11-dev20250926v01"
   s.summary      = "FinApplet contact sdk."
   s.description  = <<-DESC
                     this is FinApplet contact sdk
@@ -15,11 +15,11 @@ Pod::Spec.new do |s|
   s.author             = { "finclip" => "contact@finogeeks.com" }
   s.platform     = :ios, "14.0"
   s.ios.deployment_target = "14.0"
-  s.source       = { :http => "https://app.finogeeks.com/finchat/sdk/FinAppletWXExt-2.49.10-dev20250926v07.zip"  }
+  s.source       = { :http => "https://app.finogeeks.com/finchat/sdk/FinAppletWXExt-2.49.11-dev20250926v01.zip"  }
   s.vendored_frameworks = "FinAppletWXExt.xcframework" 
   s.requires_arc = true
   s.libraries = 'c++'
-  s.dependency 'FinApplet','2.49.10-dev20250926v07'
+  s.dependency 'FinApplet','2.49.11-dev20250926v01'
   s.dependency 'WechatOpenSDK-XCFramework', '2.0.4'
 
   s.pod_target_xcconfig = {
