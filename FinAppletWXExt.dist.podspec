@@ -13,8 +13,8 @@ Pod::Spec.new do |s|
       LICENSE
   }
   s.author             = { "finclip" => "contact@finogeeks.com" }
-  s.platform     = :ios, '9.0'
-  s.ios.deployment_target = '9.0'
+  s.platform     = :ios, "14.0"
+  s.ios.deployment_target = "14.0"
   s.source       = { :http => "https://app.finogeeks.com/finchat/sdk/FinAppletWXExt-2.49.10-dev20250925v09.zip"  }
   s.vendored_frameworks = "FinAppletWXExt.xcframework" 
   s.requires_arc = true
